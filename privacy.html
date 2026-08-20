@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Saline Local</title>
+  <meta name="description" content="Saline Local's privacy policy — how we collect, use, and protect your information when you visit our site or apply for a business listing or Spotlight ad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&family=Aleo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --pine:         #1E3A2F;
+      --pine-dark:    #141F1A;
+      --pine-hover:   #2A4E3E;
+      --amber:        #C8923A;
+      --amber-light:  #E5A94F;
+      --amber-dark:   #AA7C31;
+      --cream:        #F8F5EE;
+      --parchment:    #EDE8DC;
+      --ink:          #1C1C1C;
+      --muted:        #6B7B74;
+      --border:       rgba(0,0,0,0.09);
+      --white:        #FFFFFF;
+      --font-serif:   'Merriweather', Georgia, serif;
+      --font-sans:    'Nunito', system-ui, sans-serif;
+      --font-heading: 'Aleo', Georgia, serif;
+      --radius:       8px;
+      --radius-lg:    14px;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md:    0 4px 18px rgba(0,0,0,0.10);
+      --shadow-lg:    0 16px 48px rgba(0,0,0,0.16);
+    }
+
+    /* ── Base ──────────────────────────────────────────── */
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .site-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .logo-fallback {
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--pine);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-fallback small {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Desktop nav */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item { position: relative; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .14s, color .14s;
+      white-space: nowrap;
+    }
+    .nav-link:hover,
+    .nav-item:hover > .nav-link,
+    .nav-item.is-open > .nav-link { color: var(--pine); background: var(--cream); }
+
+    .chevron {
+      width: 11px;
+      height: 11px;
+      transition: transform .18s;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .nav-item.is-open .chevron { transform: rotate(180deg); }
+
+    /* Mega drop */
+    .mega-drop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 16px 18px 18px;
+      min-width: 210px;
+      z-index: 300;
+    }
+    .nav-item.is-open .mega-drop { display: block; }
+
+    .mega-drop li + li { margin-top: 1px; }
+    .mega-drop a {
+      display: block;
+      padding: 8px 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background .1s, color .1s;
+    }
+    .mega-drop a:hover { background: var(--cream); color: var(--pine); }
+
+    .mega-drop-footer {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .mega-drop-footer a {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: var(--amber) !important;
+      background: none !important;
+      padding: 0 10px !important;
+    }
+    .mega-drop-footer a:hover { color: var(--pine) !important; }
+
+    /* Spotlight pill */
+    .nav-spotlight {
+      padding: 9px 18px;
+      background: var(--amber);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: background .14s, transform .14s;
+    }
+    .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: .2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: var(--white);
+      z-index: 199;
+      overflow-y: auto;
+      padding: 16px 24px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: block; }
+
+    .mobile-section-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 20px 0 8px;
+    }
+    .mobile-section-label:first-child { padding-top: 8px; }
+
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .12s;
+    }
+    .mobile-nav a:hover { background: var(--cream); }
+
+    .mobile-spotlight-link {
+      display: block;
+      margin-top: 20px;
+      padding: 15px 24px;
+      background: var(--amber);
+      color: var(--white) !important;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background .14s;
+    }
+    .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+
+    /* ── BREADCRUMB ────────────────────────────────────── */
+    .listing-breadcrumb-bar {
+      background: var(--cream);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .breadcrumb a { transition: color .14s; }
+    .breadcrumb a:hover { color: var(--pine); }
+    .breadcrumb-current { color: var(--ink); font-weight: 700; }
+
+    /* ── LEGAL DOCUMENT ────────────────────────────────── */
+    .legal-section { padding: 56px 0 96px; }
+    .legal-container { max-width: 740px; margin: 0 auto; }
+
+    .legal-header { margin-bottom: 8px; }
+    .legal-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.875rem, 3.4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .legal-updated {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .legal-lead { margin-top: 28px; }
+    .legal-lead p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+    .legal-lead p a, .legal-body p a, .legal-summary p a {
+      color: var(--pine);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: rgba(30,58,47,0.28);
+      text-underline-offset: 2px;
+      transition: color .14s;
+    }
+    .legal-lead p a:hover, .legal-body p a:hover, .legal-summary p a:hover { color: var(--amber); }
+
+    .legal-lead ul, .legal-body ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 4px 0 20px;
+    }
+    .legal-lead li, .legal-body li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .legal-lead li::before, .legal-body li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 0.68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .legal-summary {
+      background: var(--parchment);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      margin: 8px 0 44px;
+    }
+    .legal-summary h2 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .legal-summary p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 14px;
+    }
+    .legal-summary p:last-child { margin-bottom: 0; }
+    .legal-summary p strong { color: var(--ink); }
+
+    .legal-toc {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .legal-toc h2 {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .legal-toc ol {
+      counter-reset: toc;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .legal-toc li {
+      counter-increment: toc;
+      display: flex;
+      gap: 10px;
+      font-size: 0.9375rem;
+    }
+    .legal-toc li::before {
+      content: counter(toc) ".";
+      font-weight: 800;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+    .legal-toc a {
+      font-weight: 600;
+      color: var(--pine);
+      transition: color .14s;
+    }
+    .legal-toc a:hover { color: var(--amber); }
+
+    .legal-body h2 {
+      font-family: var(--font-heading);
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 48px 0 6px;
+      line-height: 1.3;
+      scroll-margin-top: 88px;
+    }
+    .legal-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 26px 0 8px;
+    }
+    .legal-inshort {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--pine);
+      margin-bottom: 14px;
+    }
+    .legal-body p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 14px;
+    }
+    .legal-address {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    .site-footer {
+      background: var(--pine-dark);
+      color: rgba(255,255,255,0.58);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-logo img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; }
+    .footer-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.2;
+    }
+    .footer-logo-text small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      transition: background .14s, color .14s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      transition: color .14s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+
+    .partner-chips { display: flex; flex-direction: column; gap: 10px; }
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 12px 18px;
+      width: fit-content;
+    }
+    .partner-chip img { height: 48px; width: auto; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.8125rem; }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a { font-size: 0.8125rem; transition: color .14s; }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .nav-toggle { display: flex; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .legal-section { padding: 40px 0 64px; }
+      .legal-summary, .legal-toc { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="site-logo" aria-label="Saline Local — home">
+        <img src="/images/logo.png" alt="Saline Local" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="logo-fallback" style="display:none">
+          Saline Local
+          <small>Saline County, AR</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="main-nav">
+
+          <li class="nav-item"><a href="/get-featured.html" class="nav-link">Get Featured</a></li>
+
+          <li class="nav-item">
+            <a href="/food.html" class="nav-link">
+              Food
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/restaurants.html" role="menuitem">Restaurants</a></li>
+                <li><a href="/catering.html" role="menuitem">Catering</a></li>
+                <li><a href="/dessert-shops.html" role="menuitem">Dessert Shops</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/food.html">View all Food &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/shopping.html" class="nav-link">
+              Shopping
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/apparel-boutiques.html" role="menuitem">Apparel &amp; Boutiques</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/shopping.html">View all Shopping &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/services.html" class="nav-link">
+              Services
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/lawn-tree-care.html" role="menuitem">Lawn &amp; Tree Care</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/services.html">View all Services &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/health.html" class="nav-link">
+              Health
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/dental.html" role="menuitem">Dental</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/health.html">View all Health &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="/spotlight.html" class="nav-link nav-spotlight">Spotlight</a></li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <p class="mobile-section-label">Company</p>
+  <ul>
+    <li><a href="/get-featured.html">Get Featured</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <p class="mobile-section-label">Browse</p>
+  <ul>
+    <li><a href="/food.html">Food &amp; Dining</a></li>
+    <li><a href="/shopping.html">Shopping</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/health.html">Health &amp; Beauty</a></li>
+  </ul>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight</a>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════
+     BREADCRUMB
+════════════════════════════════════════════════ -->
+<section class="listing-breadcrumb-bar">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span class="breadcrumb-current" aria-current="page">Privacy Policy</span>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     PRIVACY POLICY
+════════════════════════════════════════════════ -->
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-container">
+
+      <div class="legal-header">
+        <h1>Privacy Policy</h1>
+        <p class="legal-updated">Last updated August 14, 2026</p>
+      </div>
+
+      <div class="legal-lead">
+        <p>This privacy notice for Saline Local ("we," "us," or "our") describes how and why we may collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:</p>
+        <ul>
+          <li>Visit our website at salinelocal.com, or any website of ours that links to this privacy notice</li>
+          <li>Fill out a form to inquire about, claim, or purchase a Saline Local Spotlight advertising spot</li>
+          <li>Engage with our ads on Meta platforms (Facebook, Instagram), including submitting a lead form through those platforms</li>
+          <li>Engage with us in other related ways, including sales, marketing, calls, texts, or events</li>
+        </ul>
+        <p>Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>.</p>
+      </div>
+
+      <div class="legal-summary">
+        <h2>Summary of Key Points</h2>
+        <p>This summary provides key points from our privacy notice. Use the table of contents below to find the section you're looking for.</p>
+        <p><strong>What personal information do we process?</strong> When you visit, use, or navigate our Services — including submitting a form through our website or through a Facebook or Instagram lead ad — we may process personal information such as your name, phone number, email address, and business name, depending on how you interact with us. <a href="#what-we-collect">Learn more about personal information we collect.</a></p>
+        <p><strong>Do we process any sensitive personal information?</strong> No.</p>
+        <p><strong>Do we receive any information from third parties?</strong> We may receive lead information from Meta (Facebook/Instagram) when you submit an instant form through one of our ads. We do not otherwise receive information about you from third parties.</p>
+        <p><strong>How do we process your information?</strong> We process your information to respond to your inquiry, provide and administer our Services, communicate with you by email, phone, or text, process payments, and comply with the law. <a href="#how-we-process">Learn more about how we process your information.</a></p>
+        <p><strong>In what situations and with which parties do we share personal information?</strong> We share information with the service providers who help us run our business, and in specific situations described below. <a href="#how-we-share">Learn more about when and with whom we share your personal information.</a></p>
+        <p><strong>How do we keep your information safe?</strong> We use reasonable organizational and technical safeguards to protect your information, but no method of transmission or storage is 100% secure. <a href="#keep-safe">Learn more about how we keep your information safe.</a></p>
+        <p><strong>What are your rights?</strong> Depending on where you're located, you may have rights regarding your personal information, including the right to access, correct, or delete it, and to opt out of marketing calls, texts, and emails at any time. <a href="#privacy-rights">Learn more about your privacy rights.</a></p>
+        <p><strong>How do you exercise your rights?</strong> Email us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>, reply STOP to any text message to opt out of texting, or click unsubscribe in any marketing email.</p>
+      </div>
+
+      <div class="legal-toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#what-we-collect">What Information Do We Collect?</a></li>
+          <li><a href="#how-we-process">How Do We Process Your Information?</a></li>
+          <li><a href="#how-we-share">When and With Whom Do We Share Your Personal Information?</a></li>
+          <li><a href="#phone-text">Do We Contact You by Phone or Text Message?</a></li>
+          <li><a href="#cookies">Do We Use Cookies and Other Tracking Technologies?</a></li>
+          <li><a href="#retention">How Long Do We Keep Your Information?</a></li>
+          <li><a href="#keep-safe">How Do We Keep Your Information Safe?</a></li>
+          <li><a href="#minors">Do We Collect Information From Minors?</a></li>
+          <li><a href="#privacy-rights">What Are Your Privacy Rights?</a></li>
+          <li><a href="#dnt">Controls for Do-Not-Track Features</a></li>
+          <li><a href="#updates">Do We Make Updates to This Notice?</a></li>
+          <li><a href="#contact">How Can You Contact Us About This Notice?</a></li>
+          <li><a href="#review-data">How Can You Review, Update, or Delete the Data We Collect From You?</a></li>
+        </ol>
+      </div>
+
+      <div class="legal-body">
+
+        <h2 id="what-we-collect">1. What Information Do We Collect?</h2>
+
+        <h3>Personal information you disclose to us</h3>
+        <p class="legal-inshort">In Short: We collect personal information that you provide to us.</p>
+        <p>We collect personal information that you voluntarily provide to us when you express interest in the Saline Local Spotlight or our free business listings, when you submit a form on our website, when you submit a lead form through one of our Facebook or Instagram ads, or when you otherwise contact us.</p>
+        <p>Personal Information Provided by You. The personal information we collect may include:</p>
+        <ul>
+          <li>Name</li>
+          <li>Business name and category</li>
+          <li>Phone number</li>
+          <li>Email address</li>
+          <li>Mailing or business address (if provided)</li>
+        </ul>
+        <p><strong>Sensitive Information.</strong> We do not process sensitive information.</p>
+        <p>All personal information you provide to us must be true, complete, and accurate, and you must notify us of any changes.</p>
+
+        <h3>Information automatically collected</h3>
+        <p class="legal-inshort">In Short: Some information — such as your IP address and browser or device characteristics — is collected automatically when you visit our Services.</p>
+        <p>We automatically collect certain information when you visit or use our Services. This information does not reveal your specific identity but may include device and usage data such as your IP address, browser and device type, operating system, referring URLs, and how you interact with our site. This is used primarily for security, site operation, and internal analytics.</p>
+        <p>We also collect information through cookies and similar technologies, including advertising pixels used by Meta (Facebook/Instagram) to measure ad performance.</p>
+
+        <h3>Information from Meta lead ads</h3>
+        <p>If you submit a form through a Facebook or Instagram lead ad, Meta shares the information you enter (such as your name, phone number, and email address) with us so we can follow up with you. Meta's own use of your information is governed by Meta's Privacy Policy, separate from this notice.</p>
+
+        <h2 id="how-we-process">2. How Do We Process Your Information?</h2>
+        <p class="legal-inshort">In Short: We process your information to respond to inquiries, provide and improve our Services, communicate with you, process payments, and comply with the law.</p>
+        <p>We process your personal information for reasons including:</p>
+        <ul>
+          <li>To respond to your inquiry about a Spotlight postcard or business listing</li>
+          <li>To follow up by phone, text, or email regarding advertising availability and pricing</li>
+          <li>To process a purchase, including sharing information with our payment processor</li>
+          <li>To send you marketing or nurture emails about the Spotlight program, which you can opt out of at any time</li>
+          <li>To identify usage trends and improve our website and Services</li>
+          <li>To maintain accurate records in our internal CRM</li>
+        </ul>
+
+        <h2 id="how-we-share">3. When and With Whom Do We Share Your Personal Information?</h2>
+        <p class="legal-inshort">In Short: We share information with the service providers who help us operate our business, and in the specific situations described below.</p>
+        <p>We use a small set of third-party tools to run Saline Local, and your information may be processed by them on our behalf:</p>
+        <ul>
+          <li><strong>Notion</strong> — our internal CRM, used to track inquiries and advertiser status</li>
+          <li><strong>MailerLite</strong> — our email service provider, used to send nurture and marketing emails</li>
+          <li><strong>SureCart and Stripe</strong> — our checkout and payment processors, used if you purchase a Spotlight spot</li>
+          <li><strong>OttoKit</strong> — connects our checkout and email systems so your advertiser status stays up to date</li>
+          <li><strong>Meta (Facebook/Instagram)</strong> — if you submit a lead form through one of our ads, or if we run ads that use website or list-based audiences</li>
+        </ul>
+        <p>We may also share your information in these situations:</p>
+        <ul>
+          <li><strong>Business Transfers.</strong> In connection with, or during negotiations of, a merger, sale of company assets, financing, or acquisition of all or part of our business.</li>
+          <li><strong>When we use Google Analytics.</strong> We may share your information with Google Analytics to track and analyze use of our Services. To opt out, visit <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google's opt-out page</a>. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a> for details.</li>
+          <li><strong>As required by law.</strong> If we believe disclosure is necessary to comply with legal obligations, protect our rights, or protect the safety of others.</li>
+        </ul>
+        <p><strong>We do not sell your personal information.</strong></p>
+
+        <h2 id="phone-text">4. Do We Contact You by Phone or Text Message?</h2>
+        <p class="legal-inshort">In Short: If you provide a phone number, we may contact you by phone or text message about the Saline Local Spotlight, and you can opt out at any time.</p>
+        <p>If you provide your phone number to us — whether through our website, a Facebook or Instagram lead form, or directly — you agree that we may contact you by phone call or text message (SMS) regarding advertising availability, pricing, and related follow-up. Message and data rates may apply, and message frequency varies.</p>
+        <p>You can opt out of text messages at any time by replying STOP to any message we send, or by contacting us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>. You can opt out of phone calls by asking us to stop contacting you or by emailing us directly. Consent to receive calls or texts is not a condition of purchasing any Saline Local Spotlight advertising.</p>
+
+        <h2 id="cookies">5. Do We Use Cookies and Other Tracking Technologies?</h2>
+        <p class="legal-inshort">In Short: We may use cookies and other tracking technologies, including advertising pixels, to collect and store your information.</p>
+        <p>We may use cookies and similar tracking technologies (like web beacons, pixels, and the Meta Pixel) to operate our Services and measure the performance of our advertising, including ads run on Facebook and Instagram.</p>
+
+        <h2 id="retention">6. How Long Do We Keep Your Information?</h2>
+        <p class="legal-inshort">In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this notice, unless a longer period is required by law.</p>
+        <p>We retain personal information for as long as needed to respond to your inquiry, maintain our advertiser records, or comply with legal, tax, or accounting requirements. When we no longer have a legitimate business need to process your information, we will delete or anonymize it, or securely isolate it if deletion isn't immediately possible.</p>
+
+        <h2 id="keep-safe">7. How Do We Keep Your Information Safe?</h2>
+        <p class="legal-inshort">In Short: We use reasonable technical and organizational measures to protect your personal information.</p>
+        <p>We've implemented reasonable security measures designed to protect your personal information. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security. Transmission of personal information to and from our Services is at your own risk.</p>
+
+        <h2 id="minors">8. Do We Collect Information From Minors?</h2>
+        <p class="legal-inshort">In Short: We do not knowingly collect data from or market to children under 18.</p>
+        <p>We do not knowingly solicit data from or market to anyone under 18 years of age. By using our Services, you represent that you are at least 18. If we learn we've collected information from someone under 18, we will take reasonable steps to delete it. Contact us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a> if you believe we have information from a minor.</p>
+
+        <h2 id="privacy-rights">9. What Are Your Privacy Rights?</h2>
+        <p class="legal-inshort">In Short: You may review, update, or delete your information, and opt out of marketing communications, at any time.</p>
+        <p><strong>Withdrawing consent.</strong> If we rely on your consent to process your information, you may withdraw it at any time by contacting us. This won't affect the lawfulness of processing that occurred before withdrawal.</p>
+        <p><strong>Opting out of marketing.</strong> You can unsubscribe from marketing emails by clicking the unsubscribe link in any email, opt out of text messages by replying STOP, or contact us directly at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>. We may still contact you for non-marketing purposes, such as fulfilling a purchase you've already made.</p>
+        <p>If you have questions about your privacy rights, email us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>.</p>
+
+        <h2 id="dnt">10. Controls for Do-Not-Track Features</h2>
+        <p>Most browsers include a Do-Not-Track ("DNT") feature. No uniform standard for recognizing DNT signals has been finalized, so we do not currently respond to DNT signals. If a standard is adopted that we're required to follow, we'll update this notice.</p>
+
+        <h2 id="updates">11. Do We Make Updates to This Notice?</h2>
+        <p class="legal-inshort">In Short: Yes, we'll update this notice as necessary to stay current and compliant.</p>
+        <p>We may update this privacy notice from time to time. The "Last updated" date at the top will reflect the most recent revision. We encourage you to review this notice periodically.</p>
+
+        <h2 id="contact">12. How Can You Contact Us About This Notice?</h2>
+        <p>If you have questions or comments about this notice, email us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a> or contact us by mail at:</p>
+        <p class="legal-address">
+          Saline Local<br />
+          3215 Maggie Drive<br />
+          Benton, AR 72015<br />
+          United States
+        </p>
+
+        <h2 id="review-data">13. How Can You Review, Update, or Delete the Data We Collect From You?</h2>
+        <p>You have the right to request access to, correction of, or deletion of the personal information we've collected from you. To make a request, email us at <a href="mailto:chris@salinelocal.com">chris@salinelocal.com</a>.</p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="Saline Local"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="footer-logo-text" style="display:none">
+            Saline Local
+            <small>Saline County, AR</small>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Locally owned businesses, personally vetted — discovered by neighbors, for neighbors across Saline County, Arkansas.
+        </p>
+        <div class="footer-social">
+          <a href="https://facebook.com/salinelocal" aria-label="Follow Saline Local on Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a href="/food.html">Food &amp; Dining</a></li>
+          <li><a href="/shopping.html">Shopping</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/health.html">Health &amp; Beauty</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>For Businesses</h4>
+        <ul>
+          <li><a href="/get-featured.html">Get Listed (Free)</a></li>
+          <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/about.html">About Saline Local</a></li>
+          <li><a href="/contact.html">Contact Chris</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Partners</h4>
+        <div class="partner-chips">
+          <div class="partner-chip">
+            <img src="/images/benton-chamber-logo.png" alt="Benton Area Chamber of Commerce" />
+          </div>
+          <div class="partner-chip">
+            <img src="/images/bryant-chamber-logo.png" alt="Bryant Chamber of Commerce" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saline Local &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Saline County, Arkansas</p>
+      <ul class="footer-bottom-links">
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* Mobile nav toggle */
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  let navOpen = false;
+
+  function setNavState(open) {
+    navOpen = open;
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.classList.toggle('open', open);
+    mobileNav.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', () => setNavState(!navOpen));
+
+  document.addEventListener('click', (e) => {
+    if (navOpen && !toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOpen) setNavState(false);
+  });
+
+
+  /* Nav dropdowns: hover-intent with a short close delay so moving the
+     cursor from the nav link down into the dropdown panel doesn't close
+     it, even if the path clips the gap between them. */
+  const CLOSE_DELAY = 180;
+
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const drop = item.querySelector('.mega-drop');
+    if (!drop) return;
+
+    let closeTimer = null;
+
+    function openDrop() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      item.classList.add('is-open');
+    }
+
+    function scheduleClose() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        item.classList.remove('is-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    }
+
+    item.addEventListener('mouseenter', openDrop);
+    item.addEventListener('mouseleave', scheduleClose);
+    item.addEventListener('focusin', openDrop);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) scheduleClose();
+    });
+  });
+</script>
+
+</body>
+</html>

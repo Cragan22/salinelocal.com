@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinard Dental Arts and Implants | Saline Local</title>
+  <meta name="description" content="Kinard Dental Arts and Implants offers implants, TMJ, and general dental care in Benton, AR — featured on Saline Local." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&family=Aleo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --pine:         #1E3A2F;
+      --pine-dark:    #141F1A;
+      --pine-hover:   #2A4E3E;
+      --amber:        #C8923A;
+      --amber-light:  #E5A94F;
+      --amber-dark:   #AA7C31;
+      --cream:        #F8F5EE;
+      --parchment:    #EDE8DC;
+      --ink:          #1C1C1C;
+      --muted:        #6B7B74;
+      --border:       rgba(0,0,0,0.09);
+      --white:        #FFFFFF;
+      --font-serif:   'Merriweather', Georgia, serif;
+      --font-sans:    'Nunito', system-ui, sans-serif;
+      --font-heading: 'Aleo', Georgia, serif;
+      --radius:       8px;
+      --radius-lg:    14px;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md:    0 4px 18px rgba(0,0,0,0.10);
+      --shadow-lg:    0 16px 48px rgba(0,0,0,0.16);
+    }
+
+    /* ── Base ──────────────────────────────────────────── */
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .site-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .logo-fallback {
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--pine);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-fallback small {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Desktop nav */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item { position: relative; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .14s, color .14s;
+      white-space: nowrap;
+    }
+    .nav-link:hover,
+    .nav-item:hover > .nav-link,
+    .nav-item.is-open > .nav-link { color: var(--pine); background: var(--cream); }
+
+    .chevron {
+      width: 11px;
+      height: 11px;
+      transition: transform .18s;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .nav-item.is-open .chevron { transform: rotate(180deg); }
+
+    /* Mega drop */
+    .mega-drop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 16px 18px 18px;
+      min-width: 210px;
+      z-index: 300;
+    }
+    .nav-item.is-open .mega-drop { display: block; }
+
+    .mega-drop li + li { margin-top: 1px; }
+    .mega-drop a {
+      display: block;
+      padding: 8px 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background .1s, color .1s;
+    }
+    .mega-drop a:hover { background: var(--cream); color: var(--pine); }
+
+    .mega-drop-footer {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .mega-drop-footer a {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: var(--amber) !important;
+      background: none !important;
+      padding: 0 10px !important;
+    }
+    .mega-drop-footer a:hover { color: var(--pine) !important; }
+
+    /* Spotlight pill */
+    .nav-spotlight {
+      padding: 9px 18px;
+      background: var(--amber);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: background .14s, transform .14s;
+    }
+    .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: .2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: var(--white);
+      z-index: 199;
+      overflow-y: auto;
+      padding: 16px 24px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: block; }
+
+    .mobile-section-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 20px 0 8px;
+    }
+    .mobile-section-label:first-child { padding-top: 8px; }
+
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .12s;
+    }
+    .mobile-nav a:hover { background: var(--cream); }
+
+    .mobile-spotlight-link {
+      display: block;
+      margin-top: 20px;
+      padding: 15px 24px;
+      background: var(--amber);
+      color: var(--white) !important;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background .14s;
+    }
+    .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+
+    /* ── SHARED COMPONENTS (badges, pills, buttons) ────── */
+    .biz-local-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pine);
+      background: rgba(30,58,47,0.08);
+      padding: 4px 8px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .biz-local-badge-lg { font-size: 0.6875rem; padding: 6px 12px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1.5px solid rgba(0,0,0,0.11);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color .14s, background .14s, color .14s;
+    }
+    .pill:hover { border-color: var(--pine); background: var(--pine); color: var(--white); }
+    .pill.is-primary { background: var(--amber); border-color: var(--amber); color: var(--white); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 800;
+      border-radius: 8px;
+      transition: background .15s, transform .15s, border-color .15s, color .15s;
+      white-space: nowrap;
+    }
+    .btn-amber {
+      background: var(--amber);
+      color: var(--white);
+    }
+    .btn-amber:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+    .btn-outline-pine {
+      border: 2px solid var(--pine);
+      color: var(--pine);
+    }
+    .btn-outline-pine:hover { background: var(--pine); color: var(--white); }
+
+    .placeholder-flag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(200,146,58,0.12);
+      padding: 3px 9px;
+      border-radius: 100px;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    /* ── BREADCRUMB BAR ────────────────────────────────── */
+    .listing-breadcrumb-bar {
+      background: var(--cream);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .breadcrumb a { transition: color .14s; }
+    .breadcrumb a:hover { color: var(--pine); }
+    .breadcrumb-current { color: var(--ink); font-weight: 700; }
+
+    /* ── BANNER ────────────────────────────────────────── */
+    .listing-banner-section { background: var(--pine-dark); }
+    .listing-banner-img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    /* ── IDENTITY ──────────────────────────────────────── */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-sans);
+      gap: 6px;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(0,0,0,0.06);
+      padding: 5px 11px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .status-pill svg { flex-shrink: 0; }
+    .status-pill.is-verified {
+      color: #1E9E5A;
+      background: rgba(0,0,0,0.06);
+    }
+
+    .listing-identity {
+      padding: 24px 0 8px;
+    }
+    .listing-identity h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.18;
+      margin-bottom: 6px;
+    }
+    .listing-tagline {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .listing-tagline svg { color: var(--pine); flex-shrink: 0; }
+
+    /* ── ABOUT ─────────────────────────────────────────── */
+    .listing-about {
+      padding: 12px 0 8px;
+      max-width: 760px;
+    }
+    .listing-about > h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .listing-about > p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 24px;
+    }
+    .listing-subsection { margin-bottom: 22px; }
+    .listing-subsection h3 {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .listing-subsection p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    /* ── TWO-COLUMN LAYOUT ─────────────────────────────── */
+    .listing-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      padding-bottom: 56px;
+    }
+    .listing-main { min-width: 0; }
+
+    /* ── SIDEBAR CARD ──────────────────────────────────── */
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      position: sticky;
+      top: 92px;
+    }
+    .sidebar-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    /* ── GENERIC SECTION WRAPPER (location) ────────────── */
+    .listing-section {
+      padding: 32px 0 0;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .listing-section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+
+    /* ── MAP EMBED ─────────────────────────────────────── */
+    .map-embed-wrap { margin-top: 20px; }
+    .listing-map {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      height: 380px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    /* ── LOCATION ──────────────────────────────────────── */
+    .listing-location-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .listing-address {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .listing-address svg { color: var(--pine); flex-shrink: 0; }
+    .get-directions-link {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--pine);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .14s;
+    }
+    .get-directions-link:hover { color: var(--amber); }
+
+    /* ── CONTACT ACTIONS ──────────────────────────────── */
+    .listing-contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── SERVICE AREA ──────────────────────────────────── */
+    .service-area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    .site-footer {
+      background: var(--pine-dark);
+      color: rgba(255,255,255,0.58);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-logo img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; }
+    .footer-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.2;
+    }
+    .footer-logo-text small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      transition: background .14s, color .14s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      transition: color .14s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+
+    .partner-chips { display: flex; flex-direction: column; gap: 10px; }
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 12px 18px;
+      width: fit-content;
+    }
+    .partner-chip img { height: 48px; width: auto; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.8125rem; }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a { font-size: 0.8125rem; transition: color .14s; }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 900px) {
+      .listing-layout { grid-template-columns: 1fr; }
+      .sidebar-card { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .nav-toggle { display: flex; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .listing-banner-img { height: 220px; }
+      .listing-location-row { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="site-logo" aria-label="Saline Local — home">
+        <img src="/images/logo.png" alt="Saline Local" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="logo-fallback" style="display:none">
+          Saline Local
+          <small>Saline County, AR</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="main-nav">
+
+          <li class="nav-item"><a href="/get-featured.html" class="nav-link">Get Featured</a></li>
+
+          <li class="nav-item">
+            <a href="/food.html" class="nav-link">
+              Food
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/restaurants.html" role="menuitem">Restaurants</a></li>
+                <li><a href="/catering.html" role="menuitem">Catering</a></li>
+                <li><a href="/dessert-shops.html" role="menuitem">Dessert Shops</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/food.html">View all Food &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/shopping.html" class="nav-link">
+              Shopping
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/apparel-boutiques.html" role="menuitem">Apparel &amp; Boutiques</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/shopping.html">View all Shopping &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/services.html" class="nav-link">
+              Services
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/lawn-tree-care.html" role="menuitem">Lawn &amp; Tree Care</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/services.html">View all Services &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/health.html" class="nav-link">
+              Health
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/dental.html" role="menuitem">Dental</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/health.html">View all Health &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="/spotlight.html" class="nav-link nav-spotlight">Spotlight</a></li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <p class="mobile-section-label">Company</p>
+  <ul>
+    <li><a href="/get-featured.html">Get Featured</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <p class="mobile-section-label">Browse</p>
+  <ul>
+    <li><a href="/food.html">Food &amp; Dining</a></li>
+    <li><a href="/shopping.html">Shopping</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/health.html">Health &amp; Beauty</a></li>
+  </ul>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight</a>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════
+     BREADCRUMB
+════════════════════════════════════════════════ -->
+<section class="listing-breadcrumb-bar">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/health.html">Health</a>
+      <span aria-hidden="true">/</span>
+      <span class="breadcrumb-current" aria-current="page">Kinard Dental Arts and Implants</span>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     BANNER — reuse the same photo used on the food.html
+     listing row.
+════════════════════════════════════════════════ -->
+<section class="listing-banner-section">
+  <img src="/images/kinard-dental-arts-and-implants.png" alt="Kinard Dental Arts and Implants" class="listing-banner-img" />
+</section>
+
+
+<div class="container">
+
+  <!-- Business name -->
+  <div class="listing-identity">
+    <span class="status-pill is-verified">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Verified & Trusted
+    </span>
+    <h1>Kinard Dental Arts and Implants</h1>
+    <p class="listing-tagline">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Benton, AR &middot; Health
+    </p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       TWO-COLUMN LAYOUT — main content + sidebar card
+  ════════════════════════════════════════════════ -->
+  <div class="listing-layout">
+
+    <!-- Main column -->
+    <div class="listing-main">
+
+      <!-- ABOUT — 3 short subsections in Chris's voice -->
+      <div class="listing-about">
+        <h2>About Kinard Dental Arts and Implants</h2>
+        <p>
+          Kinard Dental Arts and Implants provides quality dental care for implants, sleep apnea, TMJ, dental anxiety, emergencies, and everyday cleanings and prevention, right here in Benton.
+        </p>
+        <div class="listing-subsection">
+          <h3>Personalized, Gentle Care</h3>
+          <p>
+            The entire team is dedicated to making your smile their top priority — offering the kind of personalized, gentle care patients deserve, along with the information to make informed decisions about their own oral health.
+          </p>
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="listing-section" aria-labelledby="location-heading">
+        <h2 id="location-heading">Location</h2>
+        <div class="listing-location-row">
+          <p class="listing-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            1112 Military Rd, Benton, AR 72015
+          </p>
+          <a href="https://www.google.com/maps/search/?api=1&query=1112+Military+Rd%2C+Benton%2C+AR+72015" target="_blank" rel="noopener noreferrer" class="get-directions-link">
+            Get Directions
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="map-embed-wrap">
+          <iframe
+            class="listing-map"
+            title="Map showing Kinard Dental Arts and Implants location"
+            src="https://www.google.com/maps?q=1112+Military+Rd%2C+Benton%2C+AR+72015&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="listing-sidebar">
+      <div class="sidebar-card">
+
+        <h2>Contact &amp; Connect</h2>
+        <div class="listing-contact-actions">
+
+          <div class="contact-row">
+            <a href="tel:+15017787129" class="btn btn-amber">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (501) 778-7129
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="https://www.kinarddentalarts.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Visit Website
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="https://www.facebook.com/kinarddentalarts" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+              Facebook
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="https://www.instagram.com/kinarddentalarts/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </div>
+
+        </div>
+
+        <hr class="sidebar-divider" />
+
+        <h2>Service Area</h2>
+        <div class="service-area-pills">
+          <span class="pill is-primary">Benton</span>
+          <span class="pill">Bryant</span>
+          <span class="pill">Bauxite</span>
+          <span class="pill">Haskell</span>
+          <span class="pill">Traskwood</span>
+          <span class="pill">Shannon Hills</span>
+          <span class="pill">Alexander</span>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="Saline Local"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="footer-logo-text" style="display:none">
+            Saline Local
+            <small>Saline County, AR</small>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Locally owned businesses, personally vetted — discovered by neighbors, for neighbors across Saline County, Arkansas.
+        </p>
+        <div class="footer-social">
+          <a href="https://facebook.com/salinelocal" aria-label="Follow Saline Local on Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a href="/food.html">Food &amp; Dining</a></li>
+          <li><a href="/shopping.html">Shopping</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/health.html">Health &amp; Beauty</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>For Businesses</h4>
+        <ul>
+          <li><a href="/get-featured.html">Get Listed (Free)</a></li>
+          <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/about.html">About Saline Local</a></li>
+          <li><a href="/contact.html">Contact Chris</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Partners</h4>
+        <div class="partner-chips">
+          <div class="partner-chip">
+            <img src="/images/benton-chamber-logo.png" alt="Benton Area Chamber of Commerce" />
+          </div>
+          <div class="partner-chip">
+            <img src="/images/bryant-chamber-logo.png" alt="Bryant Chamber of Commerce" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saline Local &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Saline County, Arkansas</p>
+      <ul class="footer-bottom-links">
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* Mobile nav toggle */
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  let navOpen = false;
+
+  function setNavState(open) {
+    navOpen = open;
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.classList.toggle('open', open);
+    mobileNav.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', () => setNavState(!navOpen));
+
+  document.addEventListener('click', (e) => {
+    if (navOpen && !toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOpen) setNavState(false);
+  });
+
+
+  /* Nav dropdowns: hover-intent with a short close delay so moving the
+     cursor from the nav link down into the dropdown panel doesn't close
+     it, even if the path clips the gap between them. */
+  const CLOSE_DELAY = 180;
+
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const drop = item.querySelector('.mega-drop');
+    if (!drop) return;
+
+    let closeTimer = null;
+
+    function openDrop() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      item.classList.add('is-open');
+    }
+
+    function scheduleClose() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        item.classList.remove('is-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    }
+
+    item.addEventListener('mouseenter', openDrop);
+    item.addEventListener('mouseleave', scheduleClose);
+    item.addEventListener('focusin', openDrop);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) scheduleClose();
+    });
+  });
+</script>
+
+</body>
+</html>

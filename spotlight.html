@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Saline Local Spotlight — Direct Mail Advertising | Saline Local</title>
+  <meta name="description" content="Get your business in front of 10,000 Saline County homes with the Saline Local Spotlight — a direct-mail postcard with no competing businesses, free design, and no contracts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&family=Aleo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --pine:         #1E3A2F;
+      --pine-dark:    #141F1A;
+      --pine-hover:   #2A4E3E;
+      --amber:        #C8923A;
+      --amber-light:  #E5A94F;
+      --amber-dark:   #AA7C31;
+      --cream:        #F8F5EE;
+      --parchment:    #EDE8DC;
+      --ink:          #1C1C1C;
+      --muted:        #6B7B74;
+      --border:       rgba(0,0,0,0.09);
+      --white:        #FFFFFF;
+      --font-serif:   'Merriweather', Georgia, serif;
+      --font-sans:    'Nunito', system-ui, sans-serif;
+      --font-heading: 'Aleo', Georgia, serif;
+      --radius:       8px;
+      --radius-lg:    14px;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md:    0 4px 18px rgba(0,0,0,0.10);
+      --shadow-lg:    0 16px 48px rgba(0,0,0,0.16);
+    }
+
+    /* ── Base ──────────────────────────────────────────── */
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .site-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .logo-fallback {
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--pine);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-fallback small {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Desktop nav */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item { position: relative; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .14s, color .14s;
+      white-space: nowrap;
+    }
+    .nav-link:hover,
+    .nav-item:hover > .nav-link,
+    .nav-item.is-open > .nav-link { color: var(--pine); background: var(--cream); }
+
+    .chevron {
+      width: 11px;
+      height: 11px;
+      transition: transform .18s;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .nav-item.is-open .chevron { transform: rotate(180deg); }
+
+    /* Mega drop */
+    .mega-drop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 16px 18px 18px;
+      min-width: 210px;
+      z-index: 300;
+    }
+    .nav-item.is-open .mega-drop { display: block; }
+
+    .mega-drop li + li { margin-top: 1px; }
+    .mega-drop a {
+      display: block;
+      padding: 8px 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background .1s, color .1s;
+    }
+    .mega-drop a:hover { background: var(--cream); color: var(--pine); }
+
+    .mega-drop-footer {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .mega-drop-footer a {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: var(--amber) !important;
+      background: none !important;
+      padding: 0 10px !important;
+    }
+    .mega-drop-footer a:hover { color: var(--pine) !important; }
+
+    /* Spotlight pill */
+    .nav-spotlight {
+      padding: 9px 18px;
+      background: var(--amber);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: background .14s, transform .14s;
+    }
+    .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: .2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: var(--white);
+      z-index: 199;
+      overflow-y: auto;
+      padding: 16px 24px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: block; }
+
+    .mobile-section-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 20px 0 8px;
+    }
+    .mobile-section-label:first-child { padding-top: 8px; }
+
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .12s;
+    }
+    .mobile-nav a:hover { background: var(--cream); }
+
+    .mobile-spotlight-link {
+      display: block;
+      margin-top: 20px;
+      padding: 15px 24px;
+      background: var(--amber);
+      color: var(--white) !important;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background .14s;
+    }
+    .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+
+    /* ── SPOTLIGHT HERO ────────────────────────────────── */
+    .spotlight-cta {
+      background: radial-gradient(130% 130% at 50% 20%, var(--pine-hover) 0%, var(--pine) 50%, var(--pine-dark) 100%);
+      padding: 96px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-cta-inner {
+      position: relative;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .cta-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+    .spotlight-cta h1,
+    .spotlight-cta h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.18;
+      margin-bottom: 18px;
+    }
+    .spotlight-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .btn-amber-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: var(--amber);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 8px;
+      transition: background .15s, transform .15s;
+    }
+    .btn-amber-lg:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+    /* ── VALUE PROP ────────────────────────────────────── */
+    .value-prop {
+      background: var(--white);
+      padding: 64px 0;
+    }
+    .value-prop-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .value-prop h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    .value-prop p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .value-prop p + p { margin-top: 14px; }
+    .value-prop strong { color: var(--pine); }
+
+    .hero-mailer-img {
+      display: block;
+      width: 100%;
+    }
+
+    @media (max-width: 860px) {
+      .value-prop-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .hero-mailer-img { order: -1; max-width: 480px; margin: 0 auto; }
+    }
+
+    /* ── ICON GRIDS (features / why join) ─────────────── */
+    .icon-grid-section {
+      padding: 64px 0;
+    }
+    .icon-grid-section.is-cream { background: var(--cream); }
+    .icon-grid-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 44px;
+    }
+    .icon-grid-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .icon-grid-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 32px;
+    }
+    .trust-grid.is-five { grid-template-columns: repeat(5, 1fr); }
+
+    .trust-grid.is-five .trust-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 28px 20px;
+      align-items: center;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .trust-grid.is-five .trust-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+    .trust-item { display: flex; flex-direction: column; gap: 14px; }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--cream);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pine);
+      flex-shrink: 0;
+    }
+    .trust-icon.amber-icon { background: rgba(200,146,58,0.12); color: var(--amber); }
+    .trust-icon svg { width: 22px; height: 22px; }
+
+    .trust-item h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .trust-item p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── BUTTONS ───────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 800;
+      border-radius: 8px;
+      transition: background .15s, transform .15s, border-color .15s, color .15s;
+      white-space: nowrap;
+    }
+    /* ── WHY JOIN CARDS ────────────────────────────────── */
+    .why-cards-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .why-cards-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--amber);
+      text-align: center;
+      line-height: 1.25;
+      margin-bottom: 44px;
+    }
+    .why-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .why-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 36px 32px;
+    }
+    .why-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(200,146,58,0.12);
+      color: var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-bottom: 18px;
+    }
+    .why-card-icon svg { width: 24px; height: 24px; }
+    .why-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 900;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: left;
+      align-self: stretch;
+    }
+
+    /* ── AVAILABILITY ──────────────────────────────────── */
+    .availability {
+      background: var(--parchment);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .availability-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pine);
+      background: rgba(30,58,47,0.08);
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .availability h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .availability p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .availability-spots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 36px auto 0;
+    }
+    .availability-spots-grid img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ── FOUNDER ───────────────────────────────────────── */
+    .founder {
+      background: var(--white);
+      padding: 80px 0;
+    }
+    .founder-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .founder-photo {
+      width: 196px;
+      height: 196px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      background: var(--pine);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.25);
+      flex-shrink: 0;
+    }
+    .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .founder-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .founder-text h2 {
+      font-family: var(--font-heading);
+      font-size: 1.875rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+    .founder-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .founder-text p + p { margin-top: 12px; }
+    .founder-sig {
+      margin-top: 24px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--pine);
+    }
+
+    /* ── FINAL CTA ─────────────────────────────────────── */
+    .final-cta {
+      background: radial-gradient(130% 130% at 50% 20%, var(--pine-hover) 0%, var(--pine) 50%, var(--pine-dark) 100%);
+      padding: 80px 0;
+    }
+    .final-cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .final-cta h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .final-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .final-cta-note {
+      margin-top: 18px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .final-cta-note a { color: rgba(255,255,255,0.8); font-weight: 700; transition: color .14s; }
+    .final-cta-note a:hover { color: var(--amber-light); }
+
+    /* ── CLAIM FORM ────────────────────────────────────── */
+    .claim-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 32px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .claim-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .claim-form-field { margin-bottom: 16px; }
+    .claim-form-field label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .claim-form-field input,
+    .claim-form-field textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid rgba(0,0,0,0.14);
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color .14s;
+    }
+    .claim-form-field input:focus,
+    .claim-form-field textarea:focus { outline: none; border-color: var(--pine); }
+    .claim-form-field textarea { resize: vertical; min-height: 90px; }
+    .claim-form-submit { width: 100%; justify-content: center; margin-top: 4px; }
+    .form-error {
+      display: none;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      background: rgba(178,58,58,0.08);
+      border: 1px solid rgba(178,58,58,0.35);
+      border-radius: var(--radius);
+      color: #A23B3B;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-align: left;
+    }
+    .form-success {
+      display: none;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1.5px solid var(--pine);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      color: var(--pine);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    .site-footer {
+      background: var(--pine-dark);
+      color: rgba(255,255,255,0.58);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-logo img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; }
+    .footer-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.2;
+    }
+    .footer-logo-text small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      transition: background .14s, color .14s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      transition: color .14s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+
+    .partner-chips { display: flex; flex-direction: column; gap: 10px; }
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 12px 18px;
+      width: fit-content;
+    }
+    .partner-chip img { height: 48px; width: auto; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.8125rem; }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a { font-size: 0.8125rem; transition: color .14s; }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .trust-grid, .trust-grid.is-five { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .nav-toggle { display: flex; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .founder-inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
+      .founder-photo { margin: 0 auto; }
+
+      .availability-spots-grid { grid-template-columns: 1fr; }
+
+      .claim-form-row { grid-template-columns: 1fr; }
+      .why-cards-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .trust-grid, .trust-grid.is-five { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="site-logo" aria-label="Saline Local — home">
+        <img src="/images/logo.png" alt="Saline Local" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="logo-fallback" style="display:none">
+          Saline Local
+          <small>Saline County, AR</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="main-nav">
+
+          <li class="nav-item"><a href="/get-featured.html" class="nav-link">Get Featured</a></li>
+
+          <li class="nav-item">
+            <a href="/food.html" class="nav-link">
+              Food
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/restaurants.html" role="menuitem">Restaurants</a></li>
+                <li><a href="/catering.html" role="menuitem">Catering</a></li>
+                <li><a href="/dessert-shops.html" role="menuitem">Dessert Shops</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/food.html">View all Food &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/shopping.html" class="nav-link">
+              Shopping
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/apparel-boutiques.html" role="menuitem">Apparel &amp; Boutiques</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/shopping.html">View all Shopping &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/services.html" class="nav-link">
+              Services
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/lawn-tree-care.html" role="menuitem">Lawn &amp; Tree Care</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/services.html">View all Services &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/health.html" class="nav-link">
+              Health
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/dental.html" role="menuitem">Dental</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/health.html">View all Health &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="/spotlight.html" class="nav-link nav-spotlight">Spotlight</a></li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <p class="mobile-section-label">Company</p>
+  <ul>
+    <li><a href="/get-featured.html">Get Featured</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <p class="mobile-section-label">Browse</p>
+  <ul>
+    <li><a href="/food.html">Food &amp; Dining</a></li>
+    <li><a href="/shopping.html">Shopping</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/health.html">Health &amp; Beauty</a></li>
+  </ul>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight</a>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="spotlight-cta" aria-labelledby="spotlight-hero-heading">
+  <div class="spotlight-cta-inner">
+    <span class="cta-eyebrow">The Saline Local Spotlight</span>
+    <h1 id="spotlight-hero-heading">Get Your Business in Front of 10,000 Saline County Homes</h1>
+    <p>Need a budget-friendly way to connect with local customers? The Spotlight is a direct-mail postcard that puts your business in front of 10,000 Saline County homes — no massive ad budget required.</p>
+    <a href="#claim-your-spot" class="btn-amber-lg">
+      Claim Your Spot
+    </a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     VALUE PROP
+════════════════════════════════════════════════ -->
+<section class="value-prop">
+  <div class="container value-prop-inner">
+    <div class="value-prop-text">
+      <h2>Hello, Saline County business owner!</h2>
+      <p>
+        The Spotlight is a full-color, <strong>9"×12" postcard</strong> hand-delivered to every mailbox in the mailing route — no envelope to open, no page to flip past. It lands right in front of 10,000 local households.
+      </p>
+      <p>
+        Best of all, only one business per category is featured on each mailer — so when a neighbor pulls the Spotlight out of their mailbox, your business is the star of your category. No competitors, no crowded page, just your name in front of the people already looking for what you offer.
+      </p>
+    </div>
+    <img src="/images/Saline-Local-Spotlight-front-back.png" alt="Front and back of the Saline Local Spotlight postcard mailer, showing local business ads" class="hero-mailer-img" />
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════════════ -->
+<section class="icon-grid-section is-cream" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="icon-grid-header">
+      <span class="icon-grid-eyebrow">What's Included</span>
+      <h2 id="features-heading">Everything You Need, Nothing You Don't</h2>
+    </div>
+
+    <div class="trust-grid is-five">
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <h3>FREE Professional Ad Design</h3>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>FREE Website Feature Page</h3>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon amber-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>NO Competing Businesses</h3>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
+          </svg>
+        </div>
+        <h3>Full Color on Both Sides</h3>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+          </svg>
+        </div>
+        <h3>NO Contracts</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     AVAILABILITY
+════════════════════════════════════════════════ -->
+<section class="availability">
+  <div class="container">
+    <span class="availability-eyebrow">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      September 2026 Mailing
+    </span>
+    <h2>Live View of Open Spots — Claim Yours Now!</h2>
+    <p>Only one business per category makes it onto each mailer, and spots for the next drop are going fast. Reach out today to lock in your category before someone else does.</p>
+
+    <div class="availability-spots-grid">
+      <img src="/images/Saline-Local-Spotlight-avail-spots-1.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+      <img src="/images/Saline-Local-Spotlight-avail-spots-2.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     WHY JOIN CARDS
+════════════════════════════════════════════════ -->
+<section class="why-cards-section" aria-labelledby="why-cards-heading">
+  <div class="container">
+    <h2 id="why-cards-heading" class="why-cards-heading">Why Join the Saline Local Spotlight?</h2>
+
+    <div class="why-cards-grid">
+
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="12" height="12" rx="2"/><rect x="9" y="9" width="12" height="12" rx="2"/>
+          </svg>
+        </div>
+        <h3>No Competitors Allowed</h3>
+        <p>Your business is the only one in its category, so you're never sharing the card with a competitor.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 7c-2.5-2-6-2.5-9-1.5v13c3-1 6.5-.5 9 1.5 2.5-2 6-2.5 9-1.5v-13c-3-1-6.5-.5-9 1.5z"/><line x1="12" y1="7" x2="12" y2="20"/>
+          </svg>
+        </div>
+        <h3>No Pages to Flip Through</h3>
+        <p>It's a postcard, not an envelope to open or a page to flip past. Your ad is right there on the front, every time.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 9h18"/><line x1="12" y1="9" x2="12" y2="21"/><path d="M12 9H8a2.5 2.5 0 0 1 0-5C11 4 12 9 12 9z"/><path d="M12 9h4a2.5 2.5 0 0 0 0-5C13 4 12 9 12 9z"/>
+          </svg>
+        </div>
+        <h3>We Handle Everything</h3>
+        <p>We handle the design, the printing, and the postage. You just show up.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 9v.01"/><path d="M18 9v.01"/><path d="M6 15v.01"/><path d="M18 15v.01"/>
+          </svg>
+        </div>
+        <h3>You Can't Beat the Price</h3>
+        <p>Pay 9&cent; per delivered card for a Large ad, 6&cent; for a Medium, or 3&cent; for a Small.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FOUNDER
+════════════════════════════════════════════════ -->
+<section class="founder" aria-labelledby="founder-heading">
+  <div class="founder-inner container">
+
+    <div class="founder-photo" aria-label="Chris Ragan, founder of Saline Local">
+      <img src="/images/me-pic.jpg" alt="Chris Ragan, founder of Saline Local" />
+    </div>
+
+    <div class="founder-text">
+      <p class="founder-eyebrow">A note from the founder</p>
+      <h2 id="founder-heading">Hey, Chris here.</h2>
+      <p>
+        You don't need a massive ad budget to get noticed here. My goal is simple. I connect good local businesses with the neighbors who are already looking for what they offer.
+      </p>
+      <p>
+        That's it. No frills, no long-term commitment, just a straightforward way to get your name in front of people nearby.
+      </p>
+      <p class="founder-sig">— Chris Ragan, Saline County resident</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FINAL CTA — lead-capture form
+════════════════════════════════════════════════ -->
+<section class="final-cta" id="claim-your-spot" aria-labelledby="claim-heading">
+  <div class="final-cta-inner">
+    <h2 id="claim-heading">Claim Your Spot</h2>
+    <p>Ready to get your business in front of 10,000 local homes and businesses? Spots for the next mailing are limited — fill out the form below to get started.</p>
+
+    <form class="claim-form-card" id="spotlight-claim-form" name="spotlight-claim" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="spotlight-claim" />
+      <p class="hidden" style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+      <div class="claim-form-row">
+        <div class="claim-form-field">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="First Name" autocomplete="given-name" required />
+        </div>
+        <div class="claim-form-field">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="Last Name" autocomplete="family-name" required />
+        </div>
+      </div>
+      <div class="claim-form-field">
+        <label for="business-name">Business Name</label>
+        <input type="text" id="business-name" name="Business Name" autocomplete="organization" required />
+      </div>
+      <div class="claim-form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" autocomplete="email" required />
+      </div>
+      <div class="claim-form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" rows="4"></textarea>
+      </div>
+      <p class="form-error" role="alert">Something went wrong — please try again, or call <a href="tel:+15015022279">(501) 502-2279</a>.</p>
+      <button type="submit" class="btn btn-amber-lg claim-form-submit">Send</button>
+    </form>
+    <div class="form-success" role="status">Thanks — I'll be in touch soon about claiming your spot.</div>
+
+    <p class="final-cta-note">Prefer to call? <a href="tel:+15015022279">(501) 502-2279</a>.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="Saline Local"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="footer-logo-text" style="display:none">
+            Saline Local
+            <small>Saline County, AR</small>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Locally owned businesses, personally vetted — discovered by neighbors, for neighbors across Saline County, Arkansas.
+        </p>
+        <div class="footer-social">
+          <a href="https://facebook.com/salinelocal" aria-label="Follow Saline Local on Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a href="/food.html">Food &amp; Dining</a></li>
+          <li><a href="/shopping.html">Shopping</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/health.html">Health &amp; Beauty</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>For Businesses</h4>
+        <ul>
+          <li><a href="/get-featured.html">Get Listed (Free)</a></li>
+          <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/about.html">About Saline Local</a></li>
+          <li><a href="/contact.html">Contact Chris</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Partners</h4>
+        <div class="partner-chips">
+          <div class="partner-chip">
+            <img src="/images/benton-chamber-logo.png" alt="Benton Area Chamber of Commerce" />
+          </div>
+          <div class="partner-chip">
+            <img src="/images/bryant-chamber-logo.png" alt="Bryant Chamber of Commerce" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saline Local &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Saline County, Arkansas</p>
+      <ul class="footer-bottom-links">
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* Mobile nav toggle */
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  let navOpen = false;
+
+  function setNavState(open) {
+    navOpen = open;
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.classList.toggle('open', open);
+    mobileNav.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', () => setNavState(!navOpen));
+
+  document.addEventListener('click', (e) => {
+    if (navOpen && !toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOpen) setNavState(false);
+  });
+
+
+  /* Nav dropdowns: hover-intent with a short close delay so moving the
+     cursor from the nav link down into the dropdown panel doesn't close
+     it, even if the path clips the gap between them. */
+  const CLOSE_DELAY = 180;
+
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const drop = item.querySelector('.mega-drop');
+    if (!drop) return;
+
+    let closeTimer = null;
+
+    function openDrop() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      item.classList.add('is-open');
+    }
+
+    function scheduleClose() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        item.classList.remove('is-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    }
+
+    item.addEventListener('mouseenter', openDrop);
+    item.addEventListener('mouseleave', scheduleClose);
+    item.addEventListener('focusin', openDrop);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) scheduleClose();
+    });
+  });
+
+
+  /* Netlify AJAX form submission */
+  function initNetlifyForm(form) {
+    if (!form) return;
+    const successEl = form.parentElement.querySelector('.form-success');
+    const errorEl = form.querySelector('.form-error');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (errorEl) errorEl.style.display = 'none';
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('Form submission failed');
+          form.style.display = 'none';
+          if (successEl) successEl.style.display = 'block';
+        })
+        .catch(() => {
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorEl) errorEl.style.display = 'block';
+        });
+    });
+  }
+
+  initNetlifyForm(document.getElementById('spotlight-claim-form'));
+</script>
+
+</body>
+</html>
