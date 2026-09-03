@@ -335,7 +335,7 @@
     .listing-banner-section { background: var(--pine-dark); }
     .listing-banner-img {
       width: 100%;
-      height: 360px;
+      height: clamp(220px, 30vw, 360px);
       object-fit: cover;
     }
 
@@ -638,7 +638,6 @@
 
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
 
-      .listing-banner-img { height: 220px; }
       .listing-location-row { align-items: flex-start; }
     }
   </style>
