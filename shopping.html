@@ -364,6 +364,33 @@
       max-width: 720px;
     }
 
+    .category-hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .category-hero-text { flex: 1; min-width: 0; }
+
+    .category-hero-badge {
+      flex-shrink: 0;
+      width: clamp(130px, 16vw, 210px);
+      height: auto;
+    }
+
+    @media (max-width: 780px) {
+      .category-hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .category-hero-badge {
+        align-self: center;
+        width: 140px;
+      }
+    }
+
     .category-intro {
       font-size: 16px;
       color: var(--muted);
@@ -679,13 +706,18 @@
       <span class="breadcrumb-current" aria-current="page">Shopping</span>
     </nav>
 
-    <h1 id="category-heading">Best Shopping in Saline County</h1>
+    <div class="category-hero-top">
+      <div class="category-hero-text">
+        <h1 id="category-heading">Best Shopping in Saline County</h1>
 
     <p class="category-intro">
       Downtown Benton isn't short on charm, and neither are the shops that call it home. These are the boutiques, gift shops, and stores run by real owners who know their inventory and their customers by name — not big-box aisles, just good taste and better service.
     </p>
 
     <p class="coverage-line">6 businesses serving Benton, Bryant, Bauxite, Haskell, Traskwood, Shannon Hills, and surrounding areas.</p>
+      </div>
+      <img src="/images/Best-in-Town.png" alt="Best in Town badge" class="category-hero-badge" width="210" height="134" loading="lazy">
+    </div>
 
     <div class="town-filters" role="group" aria-label="Filter by town">
       <button type="button" class="pill is-active" data-town="all">All towns</button>
