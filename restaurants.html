@@ -426,33 +426,69 @@
       padding: 40px 0 72px;
     }
 
-    .listing-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .listing-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
+    .biz-card {
       background: var(--white);
-      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
+      overflow: hidden;
       box-shadow: var(--shadow-sm);
-      padding: 18px 20px;
       transition: transform .2s, box-shadow .2s;
     }
-    .listing-row.is-linked:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .biz-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
-    .listing-row-info { flex: 1; min-width: 0; }
-    .listing-row-info .biz-name { margin-bottom: 4px; }
-    .listing-row-info .biz-location { margin-bottom: 6px; }
-
-    .listing-row-desc {
-      white-space: nowrap;
+    .biz-banner {
+      height: 130px;
+      position: relative;
       overflow: hidden;
-      text-overflow: ellipsis;
+    }
+    .biz-banner-bg {
+      width: 100%;
+      height: 100%;
+    }
+    .biz-banner-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #B85C2A 0%, #D07840 60%, #8B3E18 100%);
+    }
+
+    .biz-cat-tag {
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      background: var(--white);
+      backdrop-filter: blur(6px);
+      color: var(--ink);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .biz-card-body {
+      padding: 14px 16px 18px;
+    }
+
+    .biz-read-more {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--pine);
+      transition: color .14s;
+    }
+    .biz-read-more:hover { color: var(--amber); }
+
+    @media (max-width: 768px) {
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .listings-grid { grid-template-columns: 1fr; }
     }
 
     /* ── FOOTER ────────────────────────────────────────── */
@@ -566,8 +602,6 @@
       .nav-toggle { display: flex; }
 
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-
-      .listing-row-desc { white-space: normal; }
     }
   </style>
 </head>
@@ -739,71 +773,101 @@
 ════════════════════════════════════════════════ -->
 <section class="category-listings" aria-label="Restaurant businesses">
   <div class="container">
-    <div class="listing-rows">
+    <div class="listings-grid">
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Bryant">
+        <div class="biz-banner">
+          <img src="/images/blue-house-bakery-cafe.jpg" alt="Blue House Bakery & Cafe" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Bakery & Cafe</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/blue-house-bakery-cafe.html">Blue House Bakery &amp; Cafe</a> <a href="/verification.html" class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Bryant, AR
           </p>
-          <p class="biz-desc listing-row-desc">Blue House Bakery &amp; Cafe started as two sisters' ten-year dream of opening a small-batch bakery — a dream that became real in 2019, named for the childhood home their dad built alongside their oldest brother.</p>
+          <p class="biz-desc">Blue House Bakery &amp; Cafe started as two sisters' ten-year dream of opening a small-batch bakery — a dream that became real in 2019, named for the childhood home their dad built alongside their oldest brother.</p>
+          <a href="/blue-house-bakery-cafe.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/chilis-grill-bar.jpg" alt="Chili's Grill & Bar" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Restaurant</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/chilis-grill-bar.html">Chili's Grill &amp; Bar</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Chili's Grill &amp; Bar is a family-friendly stop in Benton serving classic Tex-Mex and American fare — burgers, fajitas, and bottomless chips — in a Southwestern-style setting that's easy to bring the whole crew to.</p>
+          <p class="biz-desc">Chili's Grill &amp; Bar is a family-friendly stop in Benton serving classic Tex-Mex and American fare — burgers, fajitas, and bottomless chips — in a Southwestern-style setting that's easy to bring the whole crew to.</p>
+          <a href="/chilis-grill-bar.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Bryant">
+        <div class="biz-banner">
+          <img src="/images/don-pepes.jpg" alt="Don Pepe's Gourmet Burritos & Tacos" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Food & Dining</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/don-pepes-gourmet-burritos-tacos.html">Don Pepe's Gourmet Burritos &amp; Tacos</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Bryant, AR
           </p>
-          <p class="biz-desc listing-row-desc">I still remember the first time I stopped in for a carne asada burrito — I've been going back every couple weeks since. Don Pepe's isn't chasing a trend or copying a chain's menu; it's a family recipe served the same honest way it's always been served, right here in Bryant.</p>
+          <p class="biz-desc">I still remember the first time I stopped in for a carne asada burrito — I've been going back every couple weeks since. Don Pepe's isn't chasing a trend or copying a chain's menu; it's a family recipe served the same honest way it's always been served, right here in Bryant.</p>
+          <a href="/don-pepes-gourmet-burritos-tacos.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/hideaway-pizza.png" alt="Hideaway Pizza" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Pizza</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/hideaway-pizza.html">Hideaway Pizza</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">At Hideaway Pizza, you'll find the perfect ingredients for a great time — a unique, vibrant spot for family, friends, a date night, or just yourself, with real pizza that stays unapologetically loyal to its tried-and-true recipes.</p>
+          <p class="biz-desc">At Hideaway Pizza, you'll find the perfect ingredients for a great time — a unique, vibrant spot for family, friends, a date night, or just yourself, with real pizza that stays unapologetically loyal to its tried-and-true recipes.</p>
+          <a href="/hideaway-pizza.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/italy-in-town.png" alt="Italy in Town" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Restaurant</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/italy-in-town.html">Italy in Town</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Italy in Town is a locally owned restaurant serving made-from-scratch Italian food in a cozy date-night atmosphere — authentic cuisine, fine wines, and weekly specials designed to be fresh and a little elevated.</p>
+          <p class="biz-desc">Italy in Town is a locally owned restaurant serving made-from-scratch Italian food in a cozy date-night atmosphere — authentic cuisine, fine wines, and weekly specials designed to be fresh and a little elevated.</p>
+          <a href="/italy-in-town.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <div class="biz-banner-placeholder" role="img" aria-label="Red Robin"></div>
+          <span class="biz-cat-tag">Restaurant</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/red-robin.html">Red Robin</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Since 1969, Red Robin has been the place that does burgers better than anyone — Bottomless Steak Fries, gourmet burgers, and shareable bites that turn into shareable moments, right off I-30 in Benton.</p>
+          <p class="biz-desc">Since 1969, Red Robin has been the place that does burgers better than anyone — Bottomless Steak Fries, gourmet burgers, and shareable bites that turn into shareable moments, right off I-30 in Benton.</p>
+          <a href="/red-robin.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
@@ -915,7 +979,7 @@
 
   /* Filter by town */
   const townPills = document.querySelectorAll('.town-filters .pill');
-  const listingRows = document.querySelectorAll('.listing-row');
+  const listingRows = document.querySelectorAll('.biz-card');
 
   townPills.forEach((pillBtn) => {
     pillBtn.addEventListener('click', () => {
