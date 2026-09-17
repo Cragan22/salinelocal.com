@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TG5RLMFK');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Best Services in Saline County | Saline Local</title>
@@ -285,7 +293,9 @@
       border-radius: 100px;
       vertical-align: middle;
       margin-left: 8px;
+      transition: background .14s;
     }
+    .status-pill:hover { background: rgba(0,0,0,0.11); }
     .status-pill.is-verified {
       color: #1E9E5A;
       background: rgba(0,0,0,0.06);
@@ -424,33 +434,69 @@
       padding: 40px 0 72px;
     }
 
-    .listing-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .listing-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
+    .biz-card {
       background: var(--white);
-      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
+      overflow: hidden;
       box-shadow: var(--shadow-sm);
-      padding: 18px 20px;
       transition: transform .2s, box-shadow .2s;
     }
-    .listing-row.is-linked:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .biz-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
-    .listing-row-info { flex: 1; min-width: 0; }
-    .listing-row-info .biz-name { margin-bottom: 4px; }
-    .listing-row-info .biz-location { margin-bottom: 6px; }
-
-    .listing-row-desc {
-      white-space: nowrap;
+    .biz-banner {
+      height: 130px;
+      position: relative;
       overflow: hidden;
-      text-overflow: ellipsis;
+    }
+    .biz-banner-bg {
+      width: 100%;
+      height: 100%;
+    }
+    .biz-banner-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #B85C2A 0%, #D07840 60%, #8B3E18 100%);
+    }
+
+    .biz-cat-tag {
+      position: absolute;
+      top: 11px;
+      left: 12px;
+      background: var(--white);
+      backdrop-filter: blur(6px);
+      color: var(--ink);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .biz-card-body {
+      padding: 14px 16px 18px;
+    }
+
+    .biz-read-more {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--pine);
+      transition: color .14s;
+    }
+    .biz-read-more:hover { color: var(--amber); }
+
+    @media (max-width: 768px) {
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .listings-grid { grid-template-columns: 1fr; }
     }
 
     /* ── FOOTER ────────────────────────────────────────── */
@@ -564,12 +610,15 @@
       .nav-toggle { display: flex; }
 
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-
-      .listing-row-desc { white-space: normal; }
     }
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TG5RLMFK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
 
 <!-- ════════════════════════════════════════════════
      HEADER
@@ -714,7 +763,7 @@
       From car washes to tree work to a good haircut, these are the folks who keep Saline County running — locally owned crews and shops who show up, do the job right, and treat you like a neighbor instead of a ticket number.
     </p>
 
-    <p class="coverage-line">11 businesses serving Benton, Bryant, Bauxite, Haskell, Traskwood, Shannon Hills, and surrounding areas.</p>
+    <p class="coverage-line">10 businesses serving Benton, Bryant, Bauxite, Haskell, Traskwood, Shannon Hills, and surrounding areas.</p>
       </div>
       <img src="/images/Best-in-Town.png" alt="Best in Town badge" class="category-hero-badge" width="210" height="134" loading="lazy">
     </div>
@@ -735,126 +784,149 @@
 ════════════════════════════════════════════════ -->
 <section class="category-listings" aria-label="Services businesses">
   <div class="container">
-    <div class="listing-rows">
+    <div class="listings-grid">
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Bryant">
+        <div class="biz-banner">
+          <img src="/images/arkansas-pro-wash.jpg" alt="Arkansas Pro Wash" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Pressure Washing</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/arkansas-pro-wash.html">Arkansas Pro Wash</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Bryant, AR
           </p>
-          <p class="biz-desc listing-row-desc">Arkansas Pro Wash exists to make property maintenance easier for busy owners and managers — providing clean solutions for dirty problems, with an emphasis on being easy to work with and easy to trust.</p>
+          <p class="biz-desc">Arkansas Pro Wash exists to make property maintenance easier for busy owners and managers — providing clean solutions for dirty problems, with an emphasis on being easy to work with and easy to trust.</p>
+          <a href="/arkansas-pro-wash.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
-          <h3 class="biz-name"><a href="/augusta-lawn-care-of-saline.html">Augusta Lawn Care of Saline</a></h3>
-          <p class="biz-location">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Benton, AR
-          </p>
-          <p class="biz-desc listing-row-desc">Augusta Lawn Care of Saline provides professional landscaping and lawn care for residential properties across Benton, Alexander, and the surrounding Saline County area.</p>
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/browns-small-engine.jpg" alt="Brown's Small Engine, Inc." class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Repair Services</span>
         </div>
-      </article>
-
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/browns-small-engine-inc.html">Brown's Small Engine, Inc.</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Brown's Small Engine sells, services, and repairs small engines, lawnmowers, tillers, and more right here in Benton — with a big stock of parts and belts on hand for same-week fixes.</p>
+          <p class="biz-desc">Brown's Small Engine sells, services, and repairs small engines, lawnmowers, tillers, and more right here in Benton — with a big stock of parts and belts on hand for same-week fixes.</p>
+          <a href="/browns-small-engine-inc.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Bryant">
+        <div class="biz-banner">
+          <img src="/images/irevive-phone-repair.jpg" alt="iRevive Phone Repair" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Repair Services</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/irevive-phone-repair.html">iRevive Phone Repair</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Bryant, AR
           </p>
-          <p class="biz-desc listing-row-desc">iRevive Phone Repair's motto says it all: revive your devices, revive your world. This locally owned shop in Bryant fixes phones, tablets, laptops, gaming consoles, drones, and just about anything else with a cracked screen or a dead battery.</p>
+          <p class="biz-desc">iRevive Phone Repair's motto says it all: revive your devices, revive your world. This locally owned shop in Bryant fixes phones, tablets, laptops, gaming consoles, drones, and just about anything else with a cracked screen or a dead battery.</p>
+          <a href="/irevive-phone-repair.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
-          <h3 class="biz-name"><a href="/knightly-arbor.html">Knightly Arbor</a> <span class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</span></h3>
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/knightly-arbor.jpg" alt="Knightly Arbor" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Lawn & Tree Care</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-name"><a href="/knightly-arbor.html">Knightly Arbor</a> <a href="/verification.html" class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Knightly Arbor is a locally owned tree service built around real arboriculture know-how, not just a chainsaw and a truck. Founder Parker Knight brings over five years of specialized experience to every job, from a single problem limb to a full removal.</p>
+          <p class="biz-desc">Knightly Arbor is a locally owned tree service built around real arboriculture know-how, not just a chainsaw and a truck. Founder Parker Knight brings over five years of specialized experience to every job, from a single problem limb to a full removal.</p>
+          <a href="/knightly-arbor.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/mysaline.jpg" alt="MySaline" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Local News</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/mysaline.html">MySaline</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">MySaline has been Saline County's go-to news source since 2007 — all online, and all free to read. From Alexander and Bauxite to Benton, Bryant, and Haskell, it's local news written for the people who actually live here.</p>
+          <p class="biz-desc">MySaline has been Saline County's go-to news source since 2007 — all online, and all free to read. From Alexander and Bauxite to Benton, Bryant, and Haskell, it's local news written for the people who actually live here.</p>
+          <a href="/mysaline.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
-          <h3 class="biz-name"><a href="/red-garrison.html">Red Garrison</a></h3>
-          <p class="biz-location">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Bryant, AR
-          </p>
-          <p class="biz-desc listing-row-desc">Red Garrison is a Saline County cybersecurity company offering penetration testing and managed security services for schools and small-to-medium businesses, run by a hacker-turned-artist with a humble, no-judgment approach.</p>
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/servpro-of-saline-county.jpg" alt="SERVPRO of Saline County" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Restoration Services</span>
         </div>
-      </article>
-
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/servpro-of-saline-county.html">SERVPRO of Saline County</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">SERVPRO of Saline County is the local team to call for water, fire, and smoke restoration — along with mold remediation, crime scene cleanup, and bio-hazard response, right here in Saline County and Hot Springs.</p>
+          <p class="biz-desc">SERVPRO of Saline County is the local team to call for water, fire, and smoke restoration — along with mold remediation, crime scene cleanup, and bio-hazard response, right here in Saline County and Hot Springs.</p>
+          <a href="/servpro-of-saline-county.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
-          <h3 class="biz-name"><a href="/the-frame-maker.html">The Frame Maker</a> <span class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</span></h3>
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/the-frame-maker.jpg" alt="The Frame Maker" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Custom Framing</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-name"><a href="/the-frame-maker.html">The Frame Maker</a> <a href="/verification.html" class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">The Frame Maker is a custom framing business with 30 years of creativity and design experience, helping customers create beautiful, long-lasting art, memories, and family heirlooms using quality, conservation-grade materials.</p>
+          <p class="biz-desc">The Frame Maker is a custom framing business with 30 years of creativity and design experience, helping customers create beautiful, long-lasting art, memories, and family heirlooms using quality, conservation-grade materials.</p>
+          <a href="/the-frame-maker.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Benton">
-        <div class="listing-row-info">
+      <article class="biz-card" data-town="Benton">
+        <div class="biz-banner">
+          <img src="/images/tommys-express.jpg" alt="Tommy's Express Car Wash" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Auto Services</span>
+        </div>
+        <div class="biz-card-body">
           <h3 class="biz-name"><a href="/tommys-express-car-wash-benton.html">Tommy's Express Car Wash</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Benton, AR
           </p>
-          <p class="biz-desc listing-row-desc">Tommy's Express is a fast, full-service car wash right on Hwy 5 in Benton — pull in, and you're out in about three minutes with a genuinely clean car. It's part of a larger car wash family, but the Benton location is staffed and run by neighbors who take pride in keeping the line moving and your car looking sharp.</p>
+          <p class="biz-desc">Tommy's Express is a fast, full-service car wash right on Hwy 5 in Benton — pull in, and you're out in about three minutes with a genuinely clean car. It's part of a larger car wash family, but the Benton location is staffed and run by neighbors who take pride in keeping the line moving and your car looking sharp.</p>
+          <a href="/tommys-express-car-wash-benton.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
-      <article class="listing-row is-linked" data-town="Bryant">
-        <div class="listing-row-info">
-          <h3 class="biz-name"><a href="/whitworth-lawn-care.html">Whitworth Lawn Care</a> <span class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</span></h3>
+      <article class="biz-card" data-town="Bryant">
+        <div class="biz-banner">
+          <img src="/images/whitworth-lawn-care.jpg" alt="Whitworth Lawn Care" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
+          <span class="biz-cat-tag">Lawn & Tree Care</span>
+        </div>
+        <div class="biz-card-body">
+          <h3 class="biz-name"><a href="/whitworth-lawn-care.html">Whitworth Lawn Care</a> <a href="/verification.html" class="status-pill is-verified"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified &amp; Trusted</a></h3>
           <p class="biz-location">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Bryant, AR
           </p>
-          <p class="biz-desc listing-row-desc">Whitworth Lawn Care serves Bryant, Arkansas and the wider Saline County area, offering everything from regular mowing and trimming to custom landscape design and installation.</p>
+          <p class="biz-desc">Whitworth Lawn Care serves Bryant, Arkansas and the wider Saline County area, offering everything from regular mowing and trimming to custom landscape design and installation.</p>
+          <a href="/whitworth-lawn-care.html" class="biz-read-more">View Profile &rarr;</a>
         </div>
       </article>
 
@@ -966,7 +1038,7 @@
 
   /* Filter by town */
   const townPills = document.querySelectorAll('.town-filters .pill');
-  const listingRows = document.querySelectorAll('.listing-row');
+  const listingRows = document.querySelectorAll('.biz-card');
 
   townPills.forEach((pillBtn) => {
     pillBtn.addEventListener('click', () => {
