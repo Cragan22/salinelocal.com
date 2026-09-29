@@ -332,6 +332,63 @@
     }
     .btn-amber-lg:hover { background: var(--amber-dark); transform: translateY(-1px); }
 
+    /* ── FLIP CARD (shared) ────────────────────────────── */
+    /* Two 4:3 images stacked as the faces of one card. Toggle .is-flipped on
+       .flip-card to turn it over. Used by the value-prop postcard and the
+       availability section. */
+    .flip-card { perspective: 2000px; }
+    .flip-card-inner {
+      display: block;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      transform-style: preserve-3d;
+      transition: transform .8s ease-in-out;
+    }
+    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .flip-card-back { transform: rotateY(180deg); }
+
+    /* Click-to-flip variant: the whole card is a <button> */
+    .flip-card-button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border-radius: var(--radius-lg);
+      transition: transform .2s;
+    }
+    .flip-card-button .flip-card-face { transition: box-shadow .2s; }
+    .flip-card-button:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+    @media (hover: hover) {
+      .flip-card-button:hover { transform: translateY(-3px); }
+      .flip-card-button:hover .flip-card-face { box-shadow: var(--shadow-lg); }
+    }
+    .flip-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .flip-hint svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flip-card-inner { transition: none; }
+    }
+
     /* ── VALUE PROP ────────────────────────────────────── */
     .value-prop {
       background: var(--white);
@@ -361,10 +418,7 @@
     .value-prop p + p { margin-top: 14px; }
     .value-prop strong { color: var(--pine); }
 
-    .hero-mailer-img {
-      display: block;
-      width: 100%;
-    }
+    .hero-mailer-flip { min-width: 0; }
 
     @media (max-width: 860px) {
       .value-prop-inner {
@@ -372,7 +426,7 @@
         text-align: center;
         gap: 32px;
       }
-      .hero-mailer-img { order: -1; max-width: 480px; margin: 0 auto; }
+      .hero-mailer-flip { order: -1; width: 100%; max-width: 480px; margin: 0 auto; }
     }
 
     /* ── ICON GRIDS (features / why join) ─────────────── */
@@ -615,32 +669,11 @@
       color: var(--muted);
     }
 
-    /* Flip card */
-    .flip-card {
+    /* September flip card: sizing + Front/Back buttons (flip styles are shared, see FLIP CARD) */
+    .availability .flip-card {
       max-width: 720px;
       margin: 24px auto 0;
-      perspective: 2000px;
     }
-    .flip-card-inner {
-      position: relative;
-      aspect-ratio: 4 / 3;
-      transform-style: preserve-3d;
-      transition: transform .8s ease-in-out;
-    }
-    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
-    .flip-card-face {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    .flip-card-back { transform: rotateY(180deg); }
 
     .flip-toggle {
       display: inline-flex;
@@ -659,10 +692,6 @@
       color: var(--white);
     }
     .flip-toggle .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .flip-card-inner { transition: none; }
-    }
 
     /* ── FOUNDER ───────────────────────────────────────── */
     .founder {
@@ -1111,8 +1140,38 @@
         Best of all, only one business per category is featured on each mailer — so when a neighbor pulls the Spotlight out of their mailbox, your business is the star of your category. No competitors, no crowded page, just your name in front of the people already looking for what you offer.
       </p>
     </div>
-    <img src="/images/Saline-Local-Spotlight-front-back.png" alt="Front and back of the Saline Local Spotlight postcard mailer, showing local business ads" class="hero-mailer-img" />
+    <div class="hero-mailer-flip">
+      <button type="button" class="flip-card flip-card-button" id="heroFlipCard" aria-label="Flip postcard to see the other side">
+        <span class="flip-card-inner">
+          <img class="flip-card-face flip-card-front" id="heroCardFront" src="/images/spotlight-card-front.jpg" alt="Front of the September 2026 Saline Local Spotlight postcard, with the Saline Local logo, postage indicia, and ads from local businesses" width="1600" height="1200" />
+          <img class="flip-card-face flip-card-back" id="heroCardBack" src="/images/spotlight-card-back.jpg" alt="Back of the September 2026 Saline Local Spotlight postcard, filled with ads from local businesses" width="1600" height="1200" />
+        </span>
+      </button>
+      <p class="flip-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Tap to flip
+      </p>
+    </div>
   </div>
+  <script>
+    (function () {
+      var card = document.getElementById('heroFlipCard');
+      var front = document.getElementById('heroCardFront');
+      var back = document.getElementById('heroCardBack');
+      function update() {
+        var isBack = card.classList.contains('is-flipped');
+        // The button's name says what it does; its description is the side showing
+        card.setAttribute('aria-describedby', isBack ? 'heroCardBack' : 'heroCardFront');
+        front.setAttribute('aria-hidden', isBack);
+        back.setAttribute('aria-hidden', !isBack);
+      }
+      card.addEventListener('click', function () {
+        card.classList.toggle('is-flipped');
+        update();
+      });
+      update();
+    })();
+  </script>
 </section>
 
 
