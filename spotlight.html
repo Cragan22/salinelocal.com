@@ -570,6 +570,100 @@
       box-shadow: var(--shadow-md);
     }
 
+    /* Spot counter */
+    .spot-counter {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 36px auto 0;
+    }
+    .spot-stat {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 150px;
+      padding: 14px 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.04);
+      text-align: left;
+    }
+    .spot-stat.is-available { background: rgba(200,146,58,0.12); }
+    .spot-stat-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+    }
+    .spot-stat.is-available .spot-stat-dot { background: var(--amber); }
+    .spot-stat-num {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .spot-stat-label {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Flip card */
+    .flip-card {
+      max-width: 720px;
+      margin: 24px auto 0;
+      perspective: 2000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      transform-style: preserve-3d;
+      transition: transform .8s ease-in-out;
+    }
+    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .flip-card-back { transform: rotateY(180deg); }
+
+    .flip-toggle {
+      display: inline-flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .flip-toggle .btn {
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .flip-toggle .btn:hover { color: var(--pine); background: var(--cream); }
+    .flip-toggle .btn[aria-pressed="true"] {
+      background: var(--pine);
+      border-color: var(--pine);
+      color: var(--white);
+    }
+    .flip-toggle .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flip-card-inner { transition: none; }
+    }
+
     /* ── FOUNDER ───────────────────────────────────────── */
     .founder {
       background: var(--white);
@@ -1096,11 +1190,48 @@
     <h2>Live View of Open Spots — Claim Yours Now!</h2>
     <p>Only one business per category makes it onto each mailer, and spots for the next drop are going fast. Reach out today to lock in your category before someone else does.</p>
 
-    <div class="availability-spots-grid">
-      <img src="/images/Saline-Local-Spotlight-avail-spots-1.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
-      <img src="/images/Saline-Local-Spotlight-avail-spots-2.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+    <!-- ═══ SPOT COUNTER: update these two numbers for each mailing ═══
+         Card has 18 spots total (8 front + 10 back). Available + Sold should add up to 18. -->
+    <div class="spot-counter">
+      <div class="spot-stat is-available">
+        <span class="spot-stat-dot" aria-hidden="true"></span>
+        <div><span class="spot-stat-num">0</span><span class="spot-stat-label">Available</span></div>
+      </div>
+      <div class="spot-stat">
+        <span class="spot-stat-dot" aria-hidden="true"></span>
+        <div><span class="spot-stat-num">18</span><span class="spot-stat-label">Sold</span></div>
+      </div>
+    </div>
+    <!-- ═══ END SPOT COUNTER ═══ -->
+
+    <div class="flip-card" id="spotsFlipCard">
+      <div class="flip-card-inner">
+        <img class="flip-card-face flip-card-front" src="/images/Saline-Local-Spotlight-avail-spots-1.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+        <img class="flip-card-face flip-card-back" src="/images/Saline-Local-Spotlight-avail-spots-2.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+      </div>
+    </div>
+    <div class="flip-toggle" role="group" aria-label="Show side of mailer">
+      <button type="button" class="btn" data-side="front" aria-pressed="true">Front</button>
+      <button type="button" class="btn" data-side="back" aria-pressed="false">Back</button>
     </div>
   </div>
+  <script>
+    (function () {
+      var card = document.getElementById('spotsFlipCard');
+      var front = card.querySelector('.flip-card-front');
+      var back = card.querySelector('.flip-card-back');
+      var buttons = document.querySelectorAll('.flip-toggle .btn');
+      function show(side) {
+        var isBack = side === 'back';
+        card.classList.toggle('is-flipped', isBack);
+        front.setAttribute('aria-hidden', isBack);
+        back.setAttribute('aria-hidden', !isBack);
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.side === side); });
+      }
+      buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.side); }); });
+      show('front');
+    })();
+  </script>
 </section>
 
 
