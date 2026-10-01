@@ -11,8 +11,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Saline Local Spotlight — Direct Mail Advertising | Saline Local</title>
-  <meta name="description" content="Get your business in front of 10,000 Saline County homes with the Saline Local Spotlight — a direct-mail postcard with no competing businesses, free design, and no contracts." />
+  <title>The Saline Local Community Card | Saline Local</title>
+  <meta name="description" content="Put your business in front of 4,920 Benton homes for $250 with the Saline Local Community Card. One business per category, free ad design, and no contracts." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&family=Aleo:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -764,15 +764,6 @@
       color: var(--pine);
     }
 
-    /* ── COMPARE NOTE ──────────────────────────────────── */
-    .compare-note {
-      background: var(--white);
-      padding: 0 0 64px;
-      text-align: center;
-    }
-    .compare-note p { max-width: 640px; margin: 0 auto; font-size: 16px; line-height: 1.7; color: var(--ink); }
-    .compare-note a { color: var(--pine); font-weight: 700; text-decoration: underline; }
-
     /* ── TESTIMONIAL ───────────────────────────────────── */
     .testimonial {
       background: var(--cream);
@@ -1061,7 +1052,165 @@
     @media (max-width: 520px) {
       .trust-grid, .trust-grid.is-five { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    /* ── COMMUNITY CARD additions ─────────────────────── */
+    .card-specs {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 24px;
+    }
+    .card-specs-title {
+      grid-column: 1 / -1;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pine);
+    }
+    .card-spec-num {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .card-spec-label { display: block; font-size: 0.875rem; color: var(--muted); margin-top: 2px; }
+    .card-spec-price .card-spec-num { color: var(--amber-dark); }
+
+    .cc-spots {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 820px;
+      margin: 28px auto 0;
+    }
+    .cc-side {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+    .cc-side h3 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .cc-side-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .cc-spot {
+      border-radius: 8px;
+      padding: 12px 8px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .cc-spot.is-open { background: rgba(200,146,58,0.14); border: 1px dashed var(--amber); color: var(--amber-dark); }
+    .cc-spot.is-sold { background: var(--pine); color: var(--white); }
+    .cc-spot small { display: block; font-weight: 600; opacity: 0.85; }
+
+    .compare-note {
+      background: var(--white);
+      padding: 0 0 64px;
+      text-align: center;
+    }
+    .compare-note p { max-width: 640px; margin: 0 auto; font-size: 16px; line-height: 1.7; color: var(--ink); }
+    .compare-note a { color: var(--pine); font-weight: 700; text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .cc-spots { grid-template-columns: 1fr; }
+    }
+  
+    /* Community Card flip: two HTML faces shaped like the 6.5x12 card.
+       Everything is sized in container units (cqw = 1% of the card's width), so the
+       card keeps the same shape and layout at every screen size, like the 9x12 image. */
+    .availability .cc-flip { max-width: 760px; margin: 28px auto 0; container-type: inline-size; }
+    .cc-flip .flip-card-inner { aspect-ratio: 12 / 6.5; }
+    .cc-face {
+      background: var(--white);
+      padding: 2cqw;
+      display: flex;
+      flex-direction: column;
+      gap: 1cqw;
+      text-align: center;
+    }
+    .cc-face-label {
+      font-size: max(1.4cqw, 7px);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .cc-face-body { flex: 1; display: flex; flex-direction: column; gap: 1cqw; min-height: 0; }
+    .cc-half {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1cqw;
+      min-height: 0;
+    }
+    .cc-face .cc-spot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5cqw;
+      border-radius: 1cqw;
+      font-size: max(2.1cqw, 9px);
+      line-height: 1.25;
+    }
+    .cc-face .cc-spot small { font-size: max(1.8cqw, 8px); }
+    .cc-strip {
+      flex: 0 0 22%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.8cqw;
+      padding: 0.6cqw 1.6cqw;
+      border-radius: 1cqw;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      min-height: 0;
+    }
+    .cc-strip-back { justify-content: center; gap: 4cqw; }
+    .cc-postal {
+      border: 1px solid var(--ink);
+      background: var(--white);
+      padding: 0.5cqw 1cqw;
+      font-size: max(1.2cqw, 5.5px);
+      line-height: 1.3;
+      text-align: left;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .cc-strip-logo { height: 5.5cqw; width: auto; max-width: 20cqw; object-fit: contain; }
+    .cc-strip-info { font-size: max(1.2cqw, 5.5px); line-height: 1.35; text-align: left; color: var(--ink); }
+    .cc-strip-info b { color: var(--pine); font-weight: 800; }
+    .cc-qr { width: 5.5cqw; height: 5.5cqw; flex-shrink: 0; }
+    .cc-indicia {
+      border: 1px solid var(--ink);
+      background: var(--white);
+      padding: 0.4cqw 0.8cqw;
+      font-size: max(1.05cqw, 5px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+</style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -1212,9 +1361,9 @@
 ════════════════════════════════════════════════ -->
 <section class="spotlight-cta" aria-labelledby="spotlight-hero-heading">
   <div class="spotlight-cta-inner">
-    <span class="cta-eyebrow">The Saline Local Spotlight</span>
-    <h1 id="spotlight-hero-heading">Get Your Business in Front of 10,000 Saline County Homes</h1>
-    <p>Need a budget-friendly way to connect with local customers? The Spotlight is a direct-mail postcard that puts your business in front of 10,000 Saline County homes — no massive ad budget required.</p>
+    <span class="cta-eyebrow">The Saline Local Community Card</span>
+    <h1 id="spotlight-hero-heading">Reach 4,920 Benton Homes for $250</h1>
+    <p>The Saline Local Community Card is a shared postcard built for small local businesses. One size, one price, and your business goes out to 4,920 homes in Benton without a big ad budget.</p>
     <a href="#claim-your-spot" class="btn-amber-lg">
       Claim Your Spot
     </a>
@@ -1230,44 +1379,21 @@
     <div class="value-prop-text">
       <h2>Hello, Saline County business owner!</h2>
       <p>
-        The Spotlight is a full-color, <strong>9"×12" postcard</strong> hand-delivered to every mailbox in the mailing route — no envelope to open, no page to flip past. It lands right in front of 10,000 local households.
+        The Saline Local Community Card is a full-color, <strong>6.5"×12" postcard</strong> delivered to every mailbox on the mailing route. There's no envelope to open and no page to flip past. It goes straight into the hands of 4,920 Benton households.
       </p>
       <p>
-        Best of all, only one business per category is featured on each mailer — so when a neighbor pulls the Spotlight out of their mailbox, your business is the star of your category. No competitors, no crowded page, just your name in front of the people already looking for what you offer.
+        Every ad on the card is the same size, and only one business per category gets a spot. When a neighbor pulls the card out of their mailbox, you're the only one in your line of work they'll see on it.
       </p>
     </div>
-    <div class="hero-mailer-flip">
-      <button type="button" class="flip-card flip-card-button" id="heroFlipCard" aria-label="Flip postcard to see the other side">
-        <span class="flip-card-inner">
-          <img class="flip-card-face flip-card-front" id="heroCardFront" src="/images/spotlight-card-front.jpg" alt="Front of the September 2026 Saline Local Spotlight postcard, with the Saline Local logo, postage indicia, and ads from local businesses" width="1600" height="1200" />
-          <img class="flip-card-face flip-card-back" id="heroCardBack" src="/images/spotlight-card-back.jpg" alt="Back of the September 2026 Saline Local Spotlight postcard, filled with ads from local businesses" width="1600" height="1200" />
-        </span>
-      </button>
-      <p class="flip-hint" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-        Tap to flip
-      </p>
+    <div class="card-specs" aria-label="Community Card at a glance">
+      <span class="card-specs-title">The card at a glance</span>
+      <div><span class="card-spec-num">6.5" × 12"</span><span class="card-spec-label">Full color, both sides</span></div>
+      <div><span class="card-spec-num">4,920</span><span class="card-spec-label">Benton homes</span></div>
+      <div><span class="card-spec-num">16</span><span class="card-spec-label">Equal ad spots, 8 per side</span></div>
+      <div class="card-spec-price"><span class="card-spec-num">$250</span><span class="card-spec-label">Per spot, 5&cent; per home</span></div>
     </div>
   </div>
-  <script>
-    (function () {
-      var card = document.getElementById('heroFlipCard');
-      var front = document.getElementById('heroCardFront');
-      var back = document.getElementById('heroCardBack');
-      function update() {
-        var isBack = card.classList.contains('is-flipped');
-        // The button's name says what it does; its description is the side showing
-        card.setAttribute('aria-describedby', isBack ? 'heroCardBack' : 'heroCardFront');
-        front.setAttribute('aria-hidden', isBack);
-        back.setAttribute('aria-hidden', !isBack);
-      }
-      card.addEventListener('click', function () {
-        card.classList.toggle('is-flipped');
-        update();
-      });
-      update();
-    })();
-  </script>
+  
 </section>
 
 
@@ -1338,43 +1464,87 @@
 ════════════════════════════════════════════════ -->
 <section class="availability">
   <div class="container">
-    <span class="availability-eyebrow">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      September 2026 Mailing
-    </span>
-    <h2>Live View of Open Spots — Claim Yours Now!</h2>
-    <p>Only one business per category makes it onto each mailer, and spots for the next drop are going fast. Reach out today to lock in your category before someone else does.</p>
+    <span class="availability-eyebrow">Now Booking &middot; Targeting November 2026</span>
+    <h2>Open Spots on the First Saline Local Community Card</h2>
+    <p>Only one business per category makes it onto each card. Claim your category before a competitor does.</p>
 
-    <!-- ═══ SPOT COUNTER: update these two numbers for each mailing ═══
-         Card has 18 spots total (8 front + 10 back). Available + Sold should add up to 18. -->
+    <!-- ═══ SPOT COUNTER: update these two numbers as spots sell.
+         Card has 16 spots total (8 front + 8 back). Available + Sold should add up to 16. -->
     <div class="spot-counter">
       <div class="spot-stat is-available">
         <span class="spot-stat-dot" aria-hidden="true"></span>
-        <div><span class="spot-stat-num">0</span><span class="spot-stat-label">Available</span></div>
+        <div><span class="spot-stat-num">16</span><span class="spot-stat-label">Available</span></div>
       </div>
       <div class="spot-stat">
         <span class="spot-stat-dot" aria-hidden="true"></span>
-        <div><span class="spot-stat-num">18</span><span class="spot-stat-label">Sold</span></div>
+        <div><span class="spot-stat-num">0</span><span class="spot-stat-label">Sold</span></div>
       </div>
     </div>
     <!-- ═══ END SPOT COUNTER ═══ -->
 
-    <div class="flip-card" id="spotsFlipCard">
+    <!-- ═══ SPOT MAP: when a spot sells, change class="cc-spot is-open" to "cc-spot is-sold"
+         and replace its text with the category, e.g. <div class="cc-spot is-sold">Plumbing<small>Sold</small></div> -->
+    <div class="flip-card cc-flip" id="ccSpotsFlipCard">
       <div class="flip-card-inner">
-        <img class="flip-card-face flip-card-front" src="/images/Saline-Local-Spotlight-avail-spots-1.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
-        <img class="flip-card-face flip-card-back" src="/images/Saline-Local-Spotlight-avail-spots-2.jpg" alt="Live availability map of Spotlight mailer ad spots, showing which ad sizes are sold and which are still open" />
+        <div class="flip-card-face flip-card-front cc-face" id="ccFront">
+          <span class="cc-face-label">Front</span>
+          <div class="cc-face-body">
+            <div class="cc-half">
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+            </div>
+            <div class="cc-strip cc-strip-front" aria-label="Mailing panel: postal customer box, Saline Local logo, contact info, QR code and postage indicia">
+              <span class="cc-postal">Local<br>Postal Customer</span>
+              <img class="cc-strip-logo" src="/images/logo.png" alt="Saline Local" />
+              <span class="cc-strip-info">To be on the next card, visit<br><b>salinelocal.com/community-card</b><br>501.502.2279</span>
+              <svg class="cc-qr" role="img" aria-label="QR code linking to salinelocal.com/community-card" version="1.1" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg"><rect width="35" height="35" fill="#fff"/><path fill="#1C1C1C" d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM11,1H12V2H11zM13,1H14V2H13zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM22,1H23V2H22zM24,1H25V2H24zM27,1H28V2H27zM28,1H29V2H28zM29,1H30V2H29zM30,1H31V2H30zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM1,2H2V3H1zM7,2H8V3H7zM10,2H11V3H10zM11,2H12V3H11zM12,2H13V3H12zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM21,2H22V3H21zM22,2H23V3H22zM25,2H26V3H25zM27,2H28V3H27zM33,2H34V3H33zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM11,3H12V4H11zM13,3H14V4H13zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM20,3H21V4H20zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM27,3H28V4H27zM29,3H30V4H29zM30,3H31V4H30zM31,3H32V4H31zM33,3H34V4H33zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM11,4H12V5H11zM16,4H17V5H16zM19,4H20V5H19zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM27,4H28V5H27zM29,4H30V5H29zM30,4H31V5H30zM31,4H32V5H31zM33,4H34V5H33zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM11,5H12V6H11zM12,5H13V6H12zM14,5H15V6H14zM15,5H16V6H15zM16,5H17V6H16zM17,5H18V6H17zM18,5H19V6H18zM21,5H22V6H21zM22,5H23V6H22zM23,5H24V6H23zM27,5H28V6H27zM29,5H30V6H29zM30,5H31V6H30zM31,5H32V6H31zM33,5H34V6H33zM1,6H2V7H1zM7,6H8V7H7zM9,6H10V7H9zM10,6H11V7H10zM11,6H12V7H11zM14,6H15V7H14zM15,6H16V7H15zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM27,6H28V7H27zM33,6H34V7H33zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM28,7H29V8H28zM29,7H30V8H29zM30,7H31V8H30zM31,7H32V8H31zM32,7H33V8H32zM33,7H34V8H33zM9,8H10V9H9zM11,8H12V9H11zM17,8H18V9H17zM20,8H21V9H20zM21,8H22V9H21zM22,8H23V9H22zM23,8H24V9H23zM24,8H25V9H24zM1,9H2V10H1zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM10,9H11V10H10zM14,9H15V10H14zM15,9H16V10H15zM17,9H18V10H17zM18,9H19V10H18zM20,9H21V10H20zM23,9H24V10H23zM24,9H25V10H24zM25,9H26V10H25zM27,9H28V10H27zM28,9H29V10H28zM29,9H30V10H29zM30,9H31V10H30zM31,9H32V10H31zM1,10H2V11H1zM2,10H3V11H2zM3,10H4V11H3zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM10,10H11V11H10zM14,10H15V11H14zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM20,10H21V11H20zM21,10H22V11H21zM24,10H25V11H24zM27,10H28V11H27zM28,10H29V11H28zM30,10H31V11H30zM31,10H32V11H31zM33,10H34V11H33zM4,11H5V12H4zM7,11H8V12H7zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM14,11H15V12H14zM15,11H16V12H15zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM23,11H24V12H23zM26,11H27V12H26zM27,11H28V12H27zM29,11H30V12H29zM31,11H32V12H31zM1,12H2V13H1zM2,12H3V13H2zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM10,12H11V13H10zM13,12H14V13H13zM14,12H15V13H14zM16,12H17V13H16zM17,12H18V13H17zM18,12H19V13H18zM19,12H20V13H19zM20,12H21V13H20zM21,12H22V13H21zM25,12H26V13H25zM27,12H28V13H27zM29,12H30V13H29zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM1,13H2V14H1zM4,13H5V14H4zM5,13H6V14H5zM7,13H8V14H7zM13,13H14V14H13zM15,13H16V14H15zM17,13H18V14H17zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM28,13H29V14H28zM29,13H30V14H29zM30,13H31V14H30zM33,13H34V14H33zM1,14H2V15H1zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM9,14H10V15H9zM11,14H12V15H11zM13,14H14V15H13zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM25,14H26V15H25zM27,14H28V15H27zM28,14H29V15H28zM30,14H31V15H30zM32,14H33V15H32zM33,14H34V15H33zM1,15H2V16H1zM2,15H3V16H2zM3,15H4V16H3zM6,15H7V16H6zM7,15H8V16H7zM8,15H9V16H8zM10,15H11V16H10zM13,15H14V16H13zM14,15H15V16H14zM16,15H17V16H16zM17,15H18V16H17zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM28,15H29V16H28zM30,15H31V16H30zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM4,16H5V17H4zM6,16H7V17H6zM10,16H11V17H10zM14,16H15V17H14zM16,16H17V17H16zM22,16H23V17H22zM26,16H27V17H26zM27,16H28V17H27zM30,16H31V17H30zM31,16H32V17H31zM3,17H4V18H3zM4,17H5V18H4zM7,17H8V18H7zM9,17H10V18H9zM11,17H12V18H11zM12,17H13V18H12zM16,17H17V18H16zM18,17H19V18H18zM19,17H20V18H19zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM26,17H27V18H26zM28,17H29V18H28zM29,17H30V18H29zM33,17H34V18H33zM1,18H2V19H1zM2,18H3V19H2zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM9,18H10V19H9zM12,18H13V19H12zM15,18H16V19H15zM17,18H18V19H17zM19,18H20V19H19zM20,18H21V19H20zM22,18H23V19H22zM24,18H25V19H24zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM30,18H31V19H30zM31,18H32V19H31zM32,18H33V19H32zM33,18H34V19H33zM4,19H5V20H4zM6,19H7V20H6zM7,19H8V20H7zM9,19H10V20H9zM10,19H11V20H10zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM16,19H17V20H16zM17,19H18V20H17zM19,19H20V20H19zM22,19H23V20H22zM25,19H26V20H25zM27,19H28V20H27zM28,19H29V20H28zM29,19H30V20H29zM31,19H32V20H31zM32,19H33V20H32zM1,20H2V21H1zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM8,20H9V21H8zM9,20H10V21H9zM11,20H12V21H11zM12,20H13V21H12zM16,20H17V21H16zM17,20H18V21H17zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM28,20H29V21H28zM29,20H30V21H29zM30,20H31V21H30zM31,20H32V21H31zM7,21H8V22H7zM8,21H9V22H8zM12,21H13V22H12zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM22,21H23V22H22zM24,21H25V22H24zM25,21H26V22H25zM26,21H27V22H26zM28,21H29V22H28zM29,21H30V22H29zM30,21H31V22H30zM32,21H33V22H32zM1,22H2V23H1zM4,22H5V23H4zM6,22H7V23H6zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM21,22H22V23H21zM23,22H24V23H23zM24,22H25V23H24zM26,22H27V23H26zM27,22H28V23H27zM31,22H32V23H31zM33,22H34V23H33zM1,23H2V24H1zM3,23H4V24H3zM5,23H6V24H5zM7,23H8V24H7zM9,23H10V24H9zM10,23H11V24H10zM11,23H12V24H11zM12,23H13V24H12zM18,23H19V24H18zM20,23H21V24H20zM23,23H24V24H23zM28,23H29V24H28zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM1,24H2V25H1zM3,24H4V25H3zM5,24H6V25H5zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM15,24H16V25H15zM17,24H18V25H17zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM26,24H27V25H26zM27,24H28V25H27zM28,24H29V25H28zM30,24H31V25H30zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM1,25H2V26H1zM4,25H5V26H4zM6,25H7V26H6zM7,25H8V26H7zM9,25H10V26H9zM11,25H12V26H11zM12,25H13V26H12zM18,25H19V26H18zM20,25H21V26H20zM23,25H24V26H23zM24,25H25V26H24zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM28,25H29V26H28zM29,25H30V26H29zM33,25H34V26H33zM9,26H10V27H9zM10,26H11V27H10zM13,26H14V27H13zM17,26H18V27H17zM18,26H19V27H18zM19,26H20V27H19zM20,26H21V27H20zM21,26H22V27H21zM25,26H26V27H25zM29,26H30V27H29zM31,26H32V27H31zM32,26H33V27H32zM33,26H34V27H33zM1,27H2V28H1zM2,27H3V28H2zM3,27H4V28H3zM4,27H5V28H4zM5,27H6V28H5zM6,27H7V28H6zM7,27H8V28H7zM10,27H11V28H10zM11,27H12V28H11zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM21,27H22V28H21zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM27,27H28V28H27zM29,27H30V28H29zM31,27H32V28H31zM32,27H33V28H32zM1,28H2V29H1zM7,28H8V29H7zM9,28H10V29H9zM11,28H12V29H11zM13,28H14V29H13zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM24,28H25V29H24zM25,28H26V29H25zM29,28H30V29H29zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM1,29H2V30H1zM3,29H4V30H3zM4,29H5V30H4zM5,29H6V30H5zM7,29H8V30H7zM9,29H10V30H9zM14,29H15V30H14zM15,29H16V30H15zM17,29H18V30H17zM21,29H22V30H21zM22,29H23V30H22zM23,29H24V30H23zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM28,29H29V30H28zM29,29H30V30H29zM30,29H31V30H30zM33,29H34V30H33zM1,30H2V31H1zM3,30H4V31H3zM4,30H5V31H4zM5,30H6V31H5zM7,30H8V31H7zM9,30H10V31H9zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM16,30H17V31H16zM19,30H20V31H19zM22,30H23V31H22zM24,30H25V31H24zM25,30H26V31H25zM26,30H27V31H26zM29,30H30V31H29zM31,30H32V31H31zM33,30H34V31H33zM1,31H2V32H1zM3,31H4V32H3zM4,31H5V32H4zM5,31H6V32H5zM7,31H8V32H7zM9,31H10V32H9zM12,31H13V32H12zM13,31H14V32H13zM15,31H16V32H15zM16,31H17V32H16zM17,31H18V32H17zM18,31H19V32H18zM19,31H20V32H19zM21,31H22V32H21zM25,31H26V32H25zM27,31H28V32H27zM28,31H29V32H28zM30,31H31V32H30zM31,31H32V32H31zM1,32H2V33H1zM7,32H8V33H7zM12,32H13V33H12zM16,32H17V33H16zM22,32H23V33H22zM23,32H24V33H23zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM1,33H2V34H1zM2,33H3V34H2zM3,33H4V34H3zM4,33H5V34H4zM5,33H6V34H5zM6,33H7V34H6zM7,33H8V34H7zM9,33H10V34H9zM13,33H14V34H13zM14,33H15V34H14zM16,33H17V34H16zM18,33H19V34H18zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM28,33H29V34H28zM30,33H31V34H30zM32,33H33V34H32z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg>
+              <span class="cc-indicia">PRSRT STD<br>ECRWSS<br>U.S. POSTAGE<br>PAID<br>EDDM RETAIL</span>
+            </div>
+            <div class="cc-half">
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-face flip-card-back cc-face" id="ccBack">
+          <span class="cc-face-label">Back</span>
+          <div class="cc-face-body">
+            <div class="cc-half">
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+            </div>
+            <div class="cc-strip cc-strip-back" aria-label="Saline Local logo, contact info and QR code">
+              <img class="cc-strip-logo" src="/images/logo.png" alt="Saline Local" />
+              <span class="cc-strip-info">To be on the next card, visit<br><b>salinelocal.com/community-card</b><br>501.502.2279</span>
+              <svg class="cc-qr" role="img" aria-label="QR code linking to salinelocal.com/community-card" version="1.1" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg"><rect width="35" height="35" fill="#fff"/><path fill="#1C1C1C" d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM11,1H12V2H11zM13,1H14V2H13zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM22,1H23V2H22zM24,1H25V2H24zM27,1H28V2H27zM28,1H29V2H28zM29,1H30V2H29zM30,1H31V2H30zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM1,2H2V3H1zM7,2H8V3H7zM10,2H11V3H10zM11,2H12V3H11zM12,2H13V3H12zM16,2H17V3H16zM17,2H18V3H17zM19,2H20V3H19zM21,2H22V3H21zM22,2H23V3H22zM25,2H26V3H25zM27,2H28V3H27zM33,2H34V3H33zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM11,3H12V4H11zM13,3H14V4H13zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM20,3H21V4H20zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM27,3H28V4H27zM29,3H30V4H29zM30,3H31V4H30zM31,3H32V4H31zM33,3H34V4H33zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM11,4H12V5H11zM16,4H17V5H16zM19,4H20V5H19zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM27,4H28V5H27zM29,4H30V5H29zM30,4H31V5H30zM31,4H32V5H31zM33,4H34V5H33zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM11,5H12V6H11zM12,5H13V6H12zM14,5H15V6H14zM15,5H16V6H15zM16,5H17V6H16zM17,5H18V6H17zM18,5H19V6H18zM21,5H22V6H21zM22,5H23V6H22zM23,5H24V6H23zM27,5H28V6H27zM29,5H30V6H29zM30,5H31V6H30zM31,5H32V6H31zM33,5H34V6H33zM1,6H2V7H1zM7,6H8V7H7zM9,6H10V7H9zM10,6H11V7H10zM11,6H12V7H11zM14,6H15V7H14zM15,6H16V7H15zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM27,6H28V7H27zM33,6H34V7H33zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM28,7H29V8H28zM29,7H30V8H29zM30,7H31V8H30zM31,7H32V8H31zM32,7H33V8H32zM33,7H34V8H33zM9,8H10V9H9zM11,8H12V9H11zM17,8H18V9H17zM20,8H21V9H20zM21,8H22V9H21zM22,8H23V9H22zM23,8H24V9H23zM24,8H25V9H24zM1,9H2V10H1zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM10,9H11V10H10zM14,9H15V10H14zM15,9H16V10H15zM17,9H18V10H17zM18,9H19V10H18zM20,9H21V10H20zM23,9H24V10H23zM24,9H25V10H24zM25,9H26V10H25zM27,9H28V10H27zM28,9H29V10H28zM29,9H30V10H29zM30,9H31V10H30zM31,9H32V10H31zM1,10H2V11H1zM2,10H3V11H2zM3,10H4V11H3zM4,10H5V11H4zM5,10H6V11H5zM6,10H7V11H6zM10,10H11V11H10zM14,10H15V11H14zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM20,10H21V11H20zM21,10H22V11H21zM24,10H25V11H24zM27,10H28V11H27zM28,10H29V11H28zM30,10H31V11H30zM31,10H32V11H31zM33,10H34V11H33zM4,11H5V12H4zM7,11H8V12H7zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM14,11H15V12H14zM15,11H16V12H15zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM23,11H24V12H23zM26,11H27V12H26zM27,11H28V12H27zM29,11H30V12H29zM31,11H32V12H31zM1,12H2V13H1zM2,12H3V13H2zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM10,12H11V13H10zM13,12H14V13H13zM14,12H15V13H14zM16,12H17V13H16zM17,12H18V13H17zM18,12H19V13H18zM19,12H20V13H19zM20,12H21V13H20zM21,12H22V13H21zM25,12H26V13H25zM27,12H28V13H27zM29,12H30V13H29zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM1,13H2V14H1zM4,13H5V14H4zM5,13H6V14H5zM7,13H8V14H7zM13,13H14V14H13zM15,13H16V14H15zM17,13H18V14H17zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM26,13H27V14H26zM28,13H29V14H28zM29,13H30V14H29zM30,13H31V14H30zM33,13H34V14H33zM1,14H2V15H1zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM9,14H10V15H9zM11,14H12V15H11zM13,14H14V15H13zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM25,14H26V15H25zM27,14H28V15H27zM28,14H29V15H28zM30,14H31V15H30zM32,14H33V15H32zM33,14H34V15H33zM1,15H2V16H1zM2,15H3V16H2zM3,15H4V16H3zM6,15H7V16H6zM7,15H8V16H7zM8,15H9V16H8zM10,15H11V16H10zM13,15H14V16H13zM14,15H15V16H14zM16,15H17V16H16zM17,15H18V16H17zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM28,15H29V16H28zM30,15H31V16H30zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM4,16H5V17H4zM6,16H7V17H6zM10,16H11V17H10zM14,16H15V17H14zM16,16H17V17H16zM22,16H23V17H22zM26,16H27V17H26zM27,16H28V17H27zM30,16H31V17H30zM31,16H32V17H31zM3,17H4V18H3zM4,17H5V18H4zM7,17H8V18H7zM9,17H10V18H9zM11,17H12V18H11zM12,17H13V18H12zM16,17H17V18H16zM18,17H19V18H18zM19,17H20V18H19zM23,17H24V18H23zM24,17H25V18H24zM25,17H26V18H25zM26,17H27V18H26zM28,17H29V18H28zM29,17H30V18H29zM33,17H34V18H33zM1,18H2V19H1zM2,18H3V19H2zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM9,18H10V19H9zM12,18H13V19H12zM15,18H16V19H15zM17,18H18V19H17zM19,18H20V19H19zM20,18H21V19H20zM22,18H23V19H22zM24,18H25V19H24zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM30,18H31V19H30zM31,18H32V19H31zM32,18H33V19H32zM33,18H34V19H33zM4,19H5V20H4zM6,19H7V20H6zM7,19H8V20H7zM9,19H10V20H9zM10,19H11V20H10zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM14,19H15V20H14zM16,19H17V20H16zM17,19H18V20H17zM19,19H20V20H19zM22,19H23V20H22zM25,19H26V20H25zM27,19H28V20H27zM28,19H29V20H28zM29,19H30V20H29zM31,19H32V20H31zM32,19H33V20H32zM1,20H2V21H1zM4,20H5V21H4zM5,20H6V21H5zM6,20H7V21H6zM8,20H9V21H8zM9,20H10V21H9zM11,20H12V21H11zM12,20H13V21H12zM16,20H17V21H16zM17,20H18V21H17zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM28,20H29V21H28zM29,20H30V21H29zM30,20H31V21H30zM31,20H32V21H31zM7,21H8V22H7zM8,21H9V22H8zM12,21H13V22H12zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM22,21H23V22H22zM24,21H25V22H24zM25,21H26V22H25zM26,21H27V22H26zM28,21H29V22H28zM29,21H30V22H29zM30,21H31V22H30zM32,21H33V22H32zM1,22H2V23H1zM4,22H5V23H4zM6,22H7V23H6zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM12,22H13V23H12zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM21,22H22V23H21zM23,22H24V23H23zM24,22H25V23H24zM26,22H27V23H26zM27,22H28V23H27zM31,22H32V23H31zM33,22H34V23H33zM1,23H2V24H1zM3,23H4V24H3zM5,23H6V24H5zM7,23H8V24H7zM9,23H10V24H9zM10,23H11V24H10zM11,23H12V24H11zM12,23H13V24H12zM18,23H19V24H18zM20,23H21V24H20zM23,23H24V24H23zM28,23H29V24H28zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM1,24H2V25H1zM3,24H4V25H3zM5,24H6V25H5zM10,24H11V25H10zM11,24H12V25H11zM12,24H13V25H12zM15,24H16V25H15zM17,24H18V25H17zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM26,24H27V25H26zM27,24H28V25H27zM28,24H29V25H28zM30,24H31V25H30zM31,24H32V25H31zM32,24H33V25H32zM33,24H34V25H33zM1,25H2V26H1zM4,25H5V26H4zM6,25H7V26H6zM7,25H8V26H7zM9,25H10V26H9zM11,25H12V26H11zM12,25H13V26H12zM18,25H19V26H18zM20,25H21V26H20zM23,25H24V26H23zM24,25H25V26H24zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM28,25H29V26H28zM29,25H30V26H29zM33,25H34V26H33zM9,26H10V27H9zM10,26H11V27H10zM13,26H14V27H13zM17,26H18V27H17zM18,26H19V27H18zM19,26H20V27H19zM20,26H21V27H20zM21,26H22V27H21zM25,26H26V27H25zM29,26H30V27H29zM31,26H32V27H31zM32,26H33V27H32zM33,26H34V27H33zM1,27H2V28H1zM2,27H3V28H2zM3,27H4V28H3zM4,27H5V28H4zM5,27H6V28H5zM6,27H7V28H6zM7,27H8V28H7zM10,27H11V28H10zM11,27H12V28H11zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM21,27H22V28H21zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM27,27H28V28H27zM29,27H30V28H29zM31,27H32V28H31zM32,27H33V28H32zM1,28H2V29H1zM7,28H8V29H7zM9,28H10V29H9zM11,28H12V29H11zM13,28H14V29H13zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM24,28H25V29H24zM25,28H26V29H25zM29,28H30V29H29zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM1,29H2V30H1zM3,29H4V30H3zM4,29H5V30H4zM5,29H6V30H5zM7,29H8V30H7zM9,29H10V30H9zM14,29H15V30H14zM15,29H16V30H15zM17,29H18V30H17zM21,29H22V30H21zM22,29H23V30H22zM23,29H24V30H23zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM28,29H29V30H28zM29,29H30V30H29zM30,29H31V30H30zM33,29H34V30H33zM1,30H2V31H1zM3,30H4V31H3zM4,30H5V31H4zM5,30H6V31H5zM7,30H8V31H7zM9,30H10V31H9zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM16,30H17V31H16zM19,30H20V31H19zM22,30H23V31H22zM24,30H25V31H24zM25,30H26V31H25zM26,30H27V31H26zM29,30H30V31H29zM31,30H32V31H31zM33,30H34V31H33zM1,31H2V32H1zM3,31H4V32H3zM4,31H5V32H4zM5,31H6V32H5zM7,31H8V32H7zM9,31H10V32H9zM12,31H13V32H12zM13,31H14V32H13zM15,31H16V32H15zM16,31H17V32H16zM17,31H18V32H17zM18,31H19V32H18zM19,31H20V32H19zM21,31H22V32H21zM25,31H26V32H25zM27,31H28V32H27zM28,31H29V32H28zM30,31H31V32H30zM31,31H32V32H31zM1,32H2V33H1zM7,32H8V33H7zM12,32H13V33H12zM16,32H17V33H16zM22,32H23V33H22zM23,32H24V33H23zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM1,33H2V34H1zM2,33H3V34H2zM3,33H4V34H3zM4,33H5V34H4zM5,33H6V34H5zM6,33H7V34H6zM7,33H8V34H7zM9,33H10V34H9zM13,33H14V34H13zM14,33H15V34H14zM16,33H17V34H16zM18,33H19V34H18zM23,33H24V34H23zM24,33H25V34H24zM25,33H26V34H25zM28,33H29V34H28zM30,33H31V34H30zM32,33H33V34H32z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg>
+            </div>
+            <div class="cc-half">
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+              <div class="cc-spot is-open">Open<small>$250</small></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="flip-toggle" role="group" aria-label="Show side of mailer">
+    <div class="flip-toggle" role="group" aria-label="Show side of the card">
       <button type="button" class="btn" data-side="front" aria-pressed="true">Front</button>
       <button type="button" class="btn" data-side="back" aria-pressed="false">Back</button>
     </div>
+    <!-- ═══ END SPOT MAP ═══ -->
   </div>
   <script>
     (function () {
-      var card = document.getElementById('spotsFlipCard');
-      var front = card.querySelector('.flip-card-front');
-      var back = card.querySelector('.flip-card-back');
+      var card = document.getElementById('ccSpotsFlipCard');
+      var front = document.getElementById('ccFront');
+      var back = document.getElementById('ccBack');
       var buttons = document.querySelectorAll('.flip-toggle .btn');
       function show(side) {
         var isBack = side === 'back';
@@ -1395,7 +1565,7 @@
 ════════════════════════════════════════════════ -->
 <section class="why-cards-section" aria-labelledby="why-cards-heading">
   <div class="container">
-    <h2 id="why-cards-heading" class="why-cards-heading">Why Join the Saline Local Spotlight?</h2>
+    <h2 id="why-cards-heading" class="why-cards-heading">Why Join the Community Card?</h2>
 
     <div class="why-cards-grid">
 
@@ -1415,8 +1585,8 @@
             <path d="M12 7c-2.5-2-6-2.5-9-1.5v13c3-1 6.5-.5 9 1.5 2.5-2 6-2.5 9-1.5v-13c-3-1-6.5-.5-9 1.5z"/><line x1="12" y1="7" x2="12" y2="20"/>
           </svg>
         </div>
-        <h3>No Pages to Flip Through</h3>
-        <p>It's a postcard, not an envelope to open or a page to flip past. Your ad is right there on the front, every time.</p>
+        <h3>Every Ad Gets Equal Space</h3>
+        <p>All 16 spots are the same size, so no one gets buried under a bigger ad. Your business gets the same attention as everyone else on the card.</p>
       </div>
 
       <div class="why-card">
@@ -1435,8 +1605,8 @@
             <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 9v.01"/><path d="M18 9v.01"/><path d="M6 15v.01"/><path d="M18 15v.01"/>
           </svg>
         </div>
-        <h3>You Can't Beat the Price</h3>
-        <p>Pay 9&cent; per delivered card for a Large ad, 6&cent; for a Medium, or 3&cent; for a Small.</p>
+        <h3>One Simple Price</h3>
+        <p>Every spot is $250, which works out to 5&cent; per home. There are no sizes to compare and no upsells.</p>
       </div>
 
     </div>
@@ -1447,9 +1617,9 @@
 <!-- ════════════════════════════════════════════════
      COMPARE NOTE
 ════════════════════════════════════════════════ -->
-<section class="compare-note" aria-label="Compare with the Community Card">
+<section class="compare-note" aria-label="Compare with the Spotlight">
   <div class="container">
-    <p>Working with a smaller budget? The <a href="/community-card.html">Saline Local Community Card</a> is our 6.5"×12" card, mailed to 4,920 Benton homes for $250 per spot.</p>
+    <p>Want to reach twice as many homes? The <a href="/spotlight.html">Saline Local Spotlight</a> is our 9"×12" card, mailed to 10,000 homes with Small, Medium, and Large ad sizes.</p>
   </div>
 </section>
 
@@ -1464,6 +1634,7 @@
         <img src="/images/hank-testimonial.jpg" alt="Hank and Shelly Cowles smile together at home." width="672" height="480" loading="lazy" />
       </div>
       <div class="testimonial-body">
+        <p class="testimonial-eyebrow">From our first Saline Local Spotlight card</p>
         <blockquote class="testimonial-quote">
           <p>"WOW! The ad just mailed out and I immediately got a call which doubled my investment in Saline Local. At this rate I'll be able to afford a fourth topping on my pizza lol."</p>
         </blockquote>
@@ -1480,10 +1651,10 @@
 <section class="final-cta" id="claim-your-spot" aria-labelledby="claim-heading">
   <div class="final-cta-inner">
     <h2 id="claim-heading">Claim Your Spot</h2>
-    <p>Ready to get your business in front of 10,000 local homes and businesses? Spots for the next mailing are limited — fill out the form below to get started.</p>
+    <p>Ready to put your business in front of 4,920 Benton homes? There are only 16 spots on each card. Fill out the form below and I'll let you know if your category is open.</p>
 
-    <form class="claim-form-card" id="spotlight-claim-form" name="spotlight-claim" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="spotlight-claim" />
+    <form class="claim-form-card" id="community-card-claim-form" name="community-card-claim" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="community-card-claim" />
       <p class="hidden" style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
       <div class="claim-form-row">
         <div class="claim-form-field">
@@ -1507,10 +1678,10 @@
         <label for="message">Message</label>
         <textarea id="message" name="Message" rows="4"></textarea>
       </div>
-      <p class="form-error" role="alert">Something went wrong — please try again, or call <a href="tel:+15015022279">(501) 502-2279</a>.</p>
+      <p class="form-error" role="alert">Something went wrong. Please try again, or call <a href="tel:+15015022279">(501) 502-2279</a>.</p>
       <button type="submit" class="btn btn-amber-lg claim-form-submit">Send</button>
     </form>
-    <div class="form-success" role="status">Thanks — I'll be in touch soon about claiming your spot.</div>
+    <div class="form-success" role="status">Thanks! I'll check whether your category is open and be in touch soon.</div>
 
     <p class="final-cta-note">Prefer to call? <a href="tel:+15015022279">(501) 502-2279</a>.</p>
   </div>
@@ -1711,7 +1882,7 @@
     });
   }
 
-  initNetlifyForm(document.getElementById('spotlight-claim-form'));
+  initNetlifyForm(document.getElementById('community-card-claim-form'));
 </script>
 
 </body>

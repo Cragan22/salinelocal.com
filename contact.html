@@ -205,6 +205,14 @@
     }
     .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
 
+    /* Advertise dropdown */
+    .nav-advertise:hover > .nav-spotlight,
+    .nav-advertise.is-open > .nav-spotlight { background: var(--amber-dark); color: var(--white) !important; }
+    .nav-spotlight .chevron { color: currentColor; }
+    .mega-drop-right { left: auto; right: 0; min-width: 260px; }
+    .mega-drop .drop-title { display: block; }
+    .mega-drop .drop-sub { display: block; margin-top: 2px; font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+
     /* Hamburger */
     .nav-toggle {
       display: none;
@@ -278,6 +286,7 @@
       transition: background .14s;
     }
     .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+    .mobile-spotlight-link + .mobile-spotlight-link { margin-top: 10px; }
 
     /* ── BREADCRUMB ────────────────────────────────────── */
     .listing-breadcrumb-bar {
@@ -663,7 +672,20 @@
             </div>
           </li>
 
-          <li class="nav-item"><a href="/spotlight.html" class="nav-link nav-spotlight">Spotlight</a></li>
+          <li class="nav-item nav-advertise">
+            <a href="/community-card.html" class="nav-link nav-spotlight">
+              Advertise
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop mega-drop-right" role="menu">
+              <ul>
+                <li><a href="/community-card.html" role="menuitem"><span class="drop-title">Saline Local Community Card</span><span class="drop-sub">4,920 Benton homes &middot; $250 per spot</span></a></li>
+                <li><a href="/spotlight.html" role="menuitem"><span class="drop-title">Saline Local Spotlight</span><span class="drop-sub">10,000 homes &middot; from $300</span></a></li>
+              </ul>
+            </div>
+          </li>
 
         </ul>
       </nav>
@@ -691,7 +713,9 @@
     <li><a href="/services.html">Services</a></li>
     <li><a href="/health.html">Health &amp; Beauty</a></li>
   </ul>
-  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight</a>
+  <p class="mobile-section-label">Advertise</p>
+  <a href="/community-card.html" class="mobile-spotlight-link">Community Card &middot; $250</a>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight Mailer &middot; from $300</a>
 </nav>
 
 
@@ -803,6 +827,7 @@
         <ul>
           <li><a href="/get-featured.html">Get Listed (Free)</a></li>
           <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/community-card.html">Community Card</a></li>
           <li><a href="/about.html">About Saline Local</a></li>
           <li><a href="/contact.html">Contact Chris</a></li>
         </ul>

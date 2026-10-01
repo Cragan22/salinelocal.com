@@ -205,6 +205,14 @@
     }
     .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
 
+    /* Advertise dropdown */
+    .nav-advertise:hover > .nav-spotlight,
+    .nav-advertise.is-open > .nav-spotlight { background: var(--amber-dark); color: var(--white) !important; }
+    .nav-spotlight .chevron { color: currentColor; }
+    .mega-drop-right { left: auto; right: 0; min-width: 260px; }
+    .mega-drop .drop-title { display: block; }
+    .mega-drop .drop-sub { display: block; margin-top: 2px; font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+
     /* Hamburger */
     .nav-toggle {
       display: none;
@@ -278,6 +286,7 @@
       transition: background .14s;
     }
     .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+    .mobile-spotlight-link + .mobile-spotlight-link { margin-top: 10px; }
 
     /* ── HERO ──────────────────────────────────────────── */
     .hero {
@@ -522,34 +531,6 @@
     .biz-banner-bg {
       width: 100%;
       height: 100%;
-    }
-    /* Text-only card banner, used until the business has a photo */
-    .biz-banner-text {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      padding: 28px 16px 0;
-      text-align: center;
-      background: radial-gradient(130% 130% at 50% 20%, var(--pine-hover) 0%, var(--pine) 50%, var(--pine-dark) 100%);
-    }
-    .biz-banner-text-name {
-      font-family: var(--font-heading);
-      font-size: 1.375rem;
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--white);
-    }
-    .biz-banner-text-tagline {
-      font-size: 0.5625rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      line-height: 1.4;
-      text-transform: uppercase;
-      color: var(--amber-light);
     }
 
     .biz-cat-tag {
@@ -959,7 +940,20 @@
             </div>
           </li>
 
-          <li class="nav-item"><a href="/spotlight.html" class="nav-link nav-spotlight">Spotlight</a></li>
+          <li class="nav-item nav-advertise">
+            <a href="/community-card.html" class="nav-link nav-spotlight">
+              Advertise
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop mega-drop-right" role="menu">
+              <ul>
+                <li><a href="/community-card.html" role="menuitem"><span class="drop-title">Saline Local Community Card</span><span class="drop-sub">4,920 Benton homes &middot; $250 per spot</span></a></li>
+                <li><a href="/spotlight.html" role="menuitem"><span class="drop-title">Saline Local Spotlight</span><span class="drop-sub">10,000 homes &middot; from $300</span></a></li>
+              </ul>
+            </div>
+          </li>
 
         </ul>
       </nav>
@@ -987,7 +981,9 @@
     <li><a href="/services.html">Services</a></li>
     <li><a href="/health.html">Health &amp; Beauty</a></li>
   </ul>
-  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight</a>
+  <p class="mobile-section-label">Advertise</p>
+  <a href="/community-card.html" class="mobile-spotlight-link">Community Card &middot; $250</a>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight Mailer &middot; from $300</a>
 </nav>
 
 
@@ -1099,10 +1095,7 @@
 
       <article class="biz-card">
         <div class="biz-banner">
-          <div class="biz-banner-text" role="img" aria-label="Medicare Hank">
-            <span class="biz-banner-text-name" aria-hidden="true">Medicare Hank</span>
-            <span class="biz-banner-text-tagline" aria-hidden="true">Your Local Benton Medicare Agent &amp; Advocate</span>
-          </div>
+          <img src="/images/hank-and-shelly-card.jpg" alt="Medicare Hank" class="biz-banner-bg" style="object-fit:cover;width:100%;height:100%;" />
           <span class="biz-cat-tag">Medicare &amp; Insurance</span>
         </div>
         <div class="biz-card-body">
@@ -1261,6 +1254,7 @@
         <ul>
           <li><a href="/get-featured.html">Get Listed (Free)</a></li>
           <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/community-card.html">Community Card</a></li>
           <li><a href="/about.html">About Saline Local</a></li>
           <li><a href="/contact.html">Contact Chris</a></li>
         </ul>
