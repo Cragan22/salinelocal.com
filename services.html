@@ -458,6 +458,34 @@
       width: 100%;
       height: 100%;
     }
+    /* Text-only card banner, used until the business has a photo */
+    .biz-banner-text {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 28px 16px 0;
+      text-align: center;
+      background: radial-gradient(130% 130% at 50% 20%, var(--pine-hover) 0%, var(--pine) 50%, var(--pine-dark) 100%);
+    }
+    .biz-banner-text-name {
+      font-family: var(--font-heading);
+      font-size: 1.375rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .biz-banner-text-tagline {
+      font-size: 0.5625rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: var(--amber-light);
+    }
     .biz-banner-placeholder {
       width: 100%;
       height: 100%;
@@ -852,7 +880,10 @@
 
       <article class="biz-card" data-town="Benton">
         <div class="biz-banner">
-          <div class="biz-banner-placeholder" role="img" aria-label="Medicare Hank"></div>
+          <div class="biz-banner-text" role="img" aria-label="Medicare Hank">
+            <span class="biz-banner-text-name" aria-hidden="true">Medicare Hank</span>
+            <span class="biz-banner-text-tagline" aria-hidden="true">Your Local Benton Medicare Agent &amp; Advocate</span>
+          </div>
           <span class="biz-cat-tag">Medicare &amp; Insurance</span>
         </div>
         <div class="biz-card-body">
