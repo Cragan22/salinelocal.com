@@ -433,6 +433,34 @@
       line-height: 1.78;
     }
 
+    /* Team headshots */
+    .listing-team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px 40px;
+      margin-top: 4px;
+    }
+    @media (max-width: 480px) {
+      .listing-team { gap: 24px; }
+      .listing-team-member img { width: 112px; height: 112px; }
+    }
+    .listing-team-member { margin: 0; text-align: center; }
+    .listing-team-member img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-md);
+      margin: 0 auto 12px;
+    }
+    .listing-team-member figcaption {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
     /* ── TWO-COLUMN LAYOUT ─────────────────────────────── */
     .listing-layout {
       display: grid;
@@ -858,6 +886,20 @@
         <p>
           Mark McDougal has been a hacker his whole life. He'll tell you himself, half joking, that he was raised by criminals. These days he's put that instinct to better use. Red Garrison LLC, the cybersecurity company he runs with business partner Jeremy Cunningham, gets paid to break into networks so nobody else can. It's called penetration testing, and there's almost nobody else doing it in the state outside a couple of shops in Northwest Arkansas and one guy in Little Rock. Saline County has its own now.
         </p>
+
+        <div class="listing-subsection">
+          <h3>Meet Mark and Jeremy</h3>
+          <div class="listing-team">
+            <figure class="listing-team-member">
+              <img src="/images/red-garrison-mark.jpg" alt="Mark McDougal of Red Garrison LLC smiles outdoors." width="400" height="400" loading="lazy" />
+              <figcaption>Mark McDougal</figcaption>
+            </figure>
+            <figure class="listing-team-member">
+              <img src="/images/red-garrison-jeremy.jpg" alt="Jeremy Cunningham of Red Garrison LLC smiles in a studio portrait." width="400" height="400" loading="lazy" />
+              <figcaption>Jeremy Cunningham</figcaption>
+            </figure>
+          </div>
+        </div>
 
         <div class="listing-subsection">
           <h3>From Art Degree to Ethical Hacking</h3>
