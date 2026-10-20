@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TG5RLMFK');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equinovate Therapy Services | Saline Local</title>
+  <meta name="description" content="Equinovate Therapy Services is a faith-based pediatric therapy company offering occupational, speech, physical therapy, and hippotherapy in Bauxite, AR, with a new Benton clinic opening December 2026. Featured on Saline Local." />
+  <link rel="canonical" href="https://salinelocal.com/equinovate-therapy-services" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Saline Local" />
+  <meta property="og:title" content="Equinovate Therapy Services | Saline Local" />
+  <meta property="og:description" content="A faith-based pediatric therapy company in Bauxite and Benton, built around a simple belief: children and families should never feel like numbers." />
+  <meta property="og:url" content="https://salinelocal.com/equinovate-therapy-services" />
+  <meta property="og:image" content="https://salinelocal.com/images/equinovate-therapy-services-hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;500;600;700;800&family=Aleo:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ── Design tokens ─────────────────────────────────── */
+    :root {
+      --pine:         #1E3A2F;
+      --pine-dark:    #141F1A;
+      --pine-hover:   #2A4E3E;
+      --amber:        #C8923A;
+      --amber-light:  #E5A94F;
+      --amber-dark:   #AA7C31;
+      --cream:        #F8F5EE;
+      --parchment:    #EDE8DC;
+      --ink:          #1C1C1C;
+      --muted:        #6B7B74;
+      --border:       rgba(0,0,0,0.09);
+      --white:        #FFFFFF;
+      --font-serif:   'Merriweather', Georgia, serif;
+      --font-sans:    'Nunito', system-ui, sans-serif;
+      --font-heading: 'Aleo', Georgia, serif;
+      --radius:       8px;
+      --radius-lg:    14px;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+      --shadow-md:    0 4px 18px rgba(0,0,0,0.10);
+      --shadow-lg:    0 16px 48px rgba(0,0,0,0.16);
+    }
+
+    /* ── Base ──────────────────────────────────────────── */
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .site-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .logo-fallback {
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--pine);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-fallback small {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Desktop nav */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item { position: relative; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .14s, color .14s;
+      white-space: nowrap;
+    }
+    .nav-link:hover,
+    .nav-item:hover > .nav-link,
+    .nav-item.is-open > .nav-link { color: var(--pine); background: var(--cream); }
+
+    .chevron {
+      width: 11px;
+      height: 11px;
+      transition: transform .18s;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .nav-item.is-open .chevron { transform: rotate(180deg); }
+
+    /* Mega drop */
+    .mega-drop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 16px 18px 18px;
+      min-width: 210px;
+      z-index: 300;
+    }
+    .nav-item.is-open .mega-drop { display: block; }
+
+    .mega-drop li + li { margin-top: 1px; }
+    .mega-drop a {
+      display: block;
+      padding: 8px 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background .1s, color .1s;
+    }
+    .mega-drop a:hover { background: var(--cream); color: var(--pine); }
+
+    .mega-drop-footer {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .mega-drop-footer a {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: var(--amber) !important;
+      background: none !important;
+      padding: 0 10px !important;
+    }
+    .mega-drop-footer a:hover { color: var(--pine) !important; }
+
+    /* Spotlight pill */
+    .nav-spotlight {
+      padding: 9px 18px;
+      background: var(--amber);
+      color: var(--white) !important;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: background .14s, transform .14s;
+    }
+    .nav-spotlight:hover { background: var(--amber-dark) !important; transform: translateY(-1px); }
+
+    /* Advertise dropdown */
+    .nav-advertise:hover > .nav-spotlight,
+    .nav-advertise.is-open > .nav-spotlight { background: var(--amber-dark); color: var(--white) !important; }
+    .nav-spotlight .chevron { color: currentColor; }
+    .mega-drop-right { left: auto; right: 0; min-width: 260px; }
+    .mega-drop .drop-title { display: block; }
+    .mega-drop .drop-sub { display: block; margin-top: 2px; font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: .2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 68px 0 0 0;
+      background: var(--white);
+      z-index: 199;
+      overflow-y: auto;
+      padding: 16px 24px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-nav.open { display: block; }
+
+    .mobile-section-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 20px 0 8px;
+    }
+    .mobile-section-label:first-child { padding-top: 8px; }
+
+    .mobile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: background .12s;
+    }
+    .mobile-nav a:hover { background: var(--cream); }
+
+    .mobile-spotlight-link {
+      display: block;
+      margin-top: 20px;
+      padding: 15px 24px;
+      background: var(--amber);
+      color: var(--white) !important;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background .14s;
+    }
+    .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
+    .mobile-spotlight-link + .mobile-spotlight-link { margin-top: 10px; }
+
+    /* ── SHARED COMPONENTS (badges, pills, buttons) ────── */
+    .biz-local-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pine);
+      background: rgba(30,58,47,0.08);
+      padding: 4px 8px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .biz-local-badge-lg { font-size: 0.6875rem; padding: 6px 12px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1.5px solid rgba(0,0,0,0.11);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color .14s, background .14s, color .14s;
+    }
+    .pill:hover { border-color: var(--pine); background: var(--pine); color: var(--white); }
+    .pill.is-primary { background: var(--amber); border-color: var(--amber); color: var(--white); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 800;
+      border-radius: 8px;
+      transition: background .15s, transform .15s, border-color .15s, color .15s;
+      white-space: nowrap;
+    }
+    .btn-amber {
+      background: var(--amber);
+      color: var(--white);
+    }
+    .btn-amber:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+    .btn-outline-pine {
+      border: 2px solid var(--pine);
+      color: var(--pine);
+    }
+    .btn-outline-pine:hover { background: var(--pine); color: var(--white); }
+
+    .placeholder-flag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: rgba(200,146,58,0.12);
+      padding: 3px 9px;
+      border-radius: 100px;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    /* ── BREADCRUMB BAR ────────────────────────────────── */
+    .listing-breadcrumb-bar {
+      background: var(--cream);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .breadcrumb a { transition: color .14s; }
+    .breadcrumb a:hover { color: var(--pine); }
+    .breadcrumb-current { color: var(--ink); font-weight: 700; }
+
+    /* ── BANNER ────────────────────────────────────────── */
+    .listing-banner-section { background: var(--pine-dark); }
+    .listing-banner-img {
+      width: 100%;
+      height: clamp(220px, 30vw, 360px);
+      object-fit: cover;
+    }
+
+    /* ── IDENTITY ──────────────────────────────────────── */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-sans);
+      gap: 6px;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(0,0,0,0.06);
+      padding: 5px 11px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+      transition: background .14s;
+    }
+    .status-pill:hover { background: rgba(0,0,0,0.11); }
+    .status-pill svg { flex-shrink: 0; }
+    .status-pill.is-verified {
+      color: #1E9E5A;
+      background: rgba(0,0,0,0.06);
+    }
+
+    .listing-identity {
+      padding: 24px 0 8px;
+    }
+    .listing-identity h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.18;
+      margin-bottom: 6px;
+    }
+    .listing-tagline {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .listing-tagline svg { color: var(--pine); flex-shrink: 0; }
+
+    /* ── ABOUT ─────────────────────────────────────────── */
+    .listing-about {
+      padding: 12px 0 8px;
+      max-width: 760px;
+    }
+    .listing-about > h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .listing-about > p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 24px;
+    }
+    .listing-subsection { margin-bottom: 22px; }
+    .listing-subsection h3 {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .listing-subsection p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .listing-subsection p + p { margin-top: 14px; }
+
+    /* ── TWO-COLUMN LAYOUT ─────────────────────────────── */
+    .listing-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      padding-bottom: 56px;
+    }
+    .listing-main { min-width: 0; }
+
+    /* ── SIDEBAR CARD ──────────────────────────────────── */
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      position: sticky;
+      top: 92px;
+    }
+    .sidebar-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    /* ── GENERIC SECTION WRAPPER (location) ────────────── */
+    .listing-section {
+      padding: 32px 0 0;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .listing-section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+
+    /* ── MAP EMBED ─────────────────────────────────────── */
+    .map-embed-wrap { margin-top: 20px; }
+    .listing-map {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      height: 380px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    /* ── LOCATION ──────────────────────────────────────── */
+    .listing-location-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .listing-address {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .listing-address svg { color: var(--pine); flex-shrink: 0; }
+    .get-directions-link {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--pine);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .14s;
+    }
+    .get-directions-link:hover { color: var(--amber); }
+
+    /* ── CONTACT ACTIONS ──────────────────────────────── */
+    .listing-contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── SERVICE AREA ──────────────────────────────────── */
+    .service-area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    .site-footer {
+      background: var(--pine-dark);
+      color: rgba(255,255,255,0.58);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 52px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-logo img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: 0.75; }
+    .footer-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.2;
+    }
+    .footer-logo-text small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .footer-tagline {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.6);
+      transition: background .14s, color .14s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      transition: color .14s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+
+    .partner-chips { display: flex; flex-direction: column; gap: 10px; }
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 12px 18px;
+      width: fit-content;
+    }
+    .partner-chip img { height: 48px; width: auto; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.8125rem; }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a { font-size: 0.8125rem; transition: color .14s; }
+    .footer-bottom-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 900px) {
+      .listing-layout { grid-template-columns: 1fr; }
+      .sidebar-card { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .nav-toggle { display: flex; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .listing-location-row { align-items: flex-start; }
+
+      /* Barn and fence sit right of center in the hero; shift the phone crop to keep them in view */
+      .listing-banner-img { object-position: 75% center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TG5RLMFK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="/" class="site-logo" aria-label="Saline Local — home">
+        <img src="/images/logo.png" alt="Saline Local" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="logo-fallback" style="display:none">
+          Saline Local
+          <small>Saline County, AR</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="main-nav">
+
+          <li class="nav-item"><a href="/get-featured.html" class="nav-link">Get Featured</a></li>
+
+          <li class="nav-item">
+            <a href="/food.html" class="nav-link">
+              Food
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/restaurants.html" role="menuitem">Restaurants</a></li>
+                <li><a href="/catering.html" role="menuitem">Catering</a></li>
+                <li><a href="/dessert-shops.html" role="menuitem">Dessert Shops</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/food.html">View all Food &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/shopping.html" class="nav-link">
+              Shopping
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/apparel-boutiques.html" role="menuitem">Apparel &amp; Boutiques</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/shopping.html">View all Shopping &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/services.html" class="nav-link">
+              Services
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/lawn-tree-care.html" role="menuitem">Lawn &amp; Tree Care</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/services.html">View all Services &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="/health.html" class="nav-link">
+              Health
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop" role="menu">
+              <ul>
+                <li><a href="/dental.html" role="menuitem">Dental</a></li>
+              </ul>
+              <div class="mega-drop-footer">
+                <a href="/health.html">View all Health &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item nav-advertise">
+            <a href="/community-card.html" class="nav-link nav-spotlight">
+              Advertise
+              <svg class="chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="mega-drop mega-drop-right" role="menu">
+              <ul>
+                <li><a href="/community-card.html" role="menuitem"><span class="drop-title">Saline Local Community Card</span><span class="drop-sub">4,920 Benton homes &middot; $250 per spot</span></a></li>
+                <li><a href="/spotlight.html" role="menuitem"><span class="drop-title">Saline Local Spotlight</span><span class="drop-sub">10,000 homes &middot; from $300</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <p class="mobile-section-label">Company</p>
+  <ul>
+    <li><a href="/get-featured.html">Get Featured</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <p class="mobile-section-label">Browse</p>
+  <ul>
+    <li><a href="/food.html">Food &amp; Dining</a></li>
+    <li><a href="/shopping.html">Shopping</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/health.html">Health &amp; Beauty</a></li>
+  </ul>
+  <p class="mobile-section-label">Advertise</p>
+  <a href="/community-card.html" class="mobile-spotlight-link">Community Card &middot; $250</a>
+  <a href="/spotlight.html" class="mobile-spotlight-link">Spotlight Mailer &middot; from $300</a>
+</nav>
+
+
+
+<!-- ════════════════════════════════════════════════
+     BREADCRUMB
+════════════════════════════════════════════════ -->
+<section class="listing-breadcrumb-bar">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/health.html">Health</a>
+      <span aria-hidden="true">/</span>
+      <span class="breadcrumb-current" aria-current="page">Equinovate Therapy Services</span>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     BANNER
+════════════════════════════════════════════════ -->
+<section class="listing-banner-section">
+  <img src="/images/equinovate-therapy-services-hero.jpg" alt="Red barn and pasture at the Equinovate Therapy Services farm in Bauxite at sunset" class="listing-banner-img" />
+</section>
+
+
+<div class="container">
+
+  <!-- Business name -->
+  <div class="listing-identity">
+    <a href="/verification.html" class="status-pill is-verified">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Verified & Trusted
+    </a>
+    <h1>Equinovate Therapy Services</h1>
+    <p class="listing-tagline">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Bauxite &amp; Benton, Arkansas &middot; Pediatric Therapy Services
+    </p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       TWO-COLUMN LAYOUT — main content + sidebar card
+  ════════════════════════════════════════════════ -->
+  <div class="listing-layout">
+
+    <!-- Main column -->
+    <div class="listing-main">
+
+      <!-- ABOUT -->
+      <div class="listing-about">
+        <h2>About Equinovate Therapy Services</h2>
+        <p style="margin-bottom:14px;">
+          For Sara Kirchner, Bauxite has always been home.
+        </p>
+        <p style="margin-bottom:14px;">
+          A 2010 graduate of Bauxite High School, Sara knew early on that small-town life was where she wanted to raise her family. Although life took her away for a few years, she eventually returned to Bauxite, bought a home, and began raising her children in the same community where she grew up.
+        </p>
+        <p style="margin-bottom:14px;">
+          Today, Sara is the owner of Equinovate Therapy Services, a faith-based pediatric therapy company built around a simple belief: children and families should never feel like numbers.
+        </p>
+        <p style="margin-bottom:14px;">
+          Equinovate provides occupational therapy, speech therapy, hippotherapy, and physical therapy services through a partnership with Rock Town Therapy. What began as a small dream has grown into a team of 12 serving approximately 100 clients throughout Central Arkansas.
+        </p>
+        <p>
+          And at the heart of it all are faith, family, and even a few horses with stories of their own.
+        </p>
+
+        <div class="listing-subsection">
+          <h3>Afraid of Horses—Until Her Son Found His Words</h3>
+          <p>
+            Sara never expected horses to become such an important part of her life or career. In fact, growing up, she was terrified of them.
+          </p>
+          <p>
+            Years later, a friend invited Sara and her family to spend time with a horse she was selling. They began taking riding lessons, and Sara noticed something remarkable happening with her youngest son, who has apraxia of speech.
+          </p>
+          <p>
+            From the saddle, he began using words to give the horse simple commands such as “go” and “stop.”
+          </p>
+          <p>
+            Watching her son communicate through his connection with the horse changed Sara’s perspective completely. She pursued specialized training and certification in hippotherapy, eventually incorporating it into her work with children.
+          </p>
+          <p>
+            To this day, she considers her son one of the biggest reasons she does what she does.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>Families, Not Numbers</h3>
+          <p>
+            Sara has worked in pediatric therapy for more than 13 years. Over time, she became increasingly aware of how easily healthcare can become focused on productivity, numbers, and paperwork instead of the individual child and family behind them.
+          </p>
+          <p>
+            She wanted something different.
+          </p>
+          <p>
+            About three years ago, Sara began building Equinovate Therapy Services while continuing to work her regular job. Then, about a year and a half ago, she took what she describes as one of the biggest—and scariest—leaps of her life and devoted herself to Equinovate full time.
+          </p>
+          <p>
+            But Equinovate wasn’t the only part of Sara’s life growing during those years.
+          </p>
+          <p>
+            While building the company, Sara also married her husband, Matthew Kirchner, who became part of the Equinovate story in a special way. Matthew is the person behind the company’s logo, creating the design that would become the visual representation of everything Sara was working to build.
+          </p>
+          <p>
+            In many ways, Equinovate grew alongside their family. What began as Sara’s dream became something the people closest to her helped support, encourage, and bring to life.
+          </p>
+          <p>
+            Through every uncertain moment, one belief continued to ground her:
+          </p>
+          <p>
+            “God always provides.” Sara believes in Proverbs 31:25 so much that Equinovate therapists proudly wear the verse on their work shirts as an outward reminder of their faith.
+          </p>
+          <p>
+            That faith remains at the center of Equinovate today.
+          </p>
+          <p>
+            As the company has grown, Sara has worked intentionally to preserve the personal relationships that inspired her to start it. The goal isn’t simply to know a child’s diagnosis or treatment plan. It’s to know the child, their parents, their siblings, and the life happening outside of therapy.
+          </p>
+          <p>
+            Even Sara’s dad is part of the Equinovate family, working part time as the company’s office manager.
+          </p>
+          <p>
+            Equinovate is built on faith, trust, compassion, and family, with the goal of reflecting Christ in the way every child, parent, employee, and community partner is treated.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>Horses With a Story</h3>
+          <p>
+            The horses used in Equinovate’s hippotherapy program aren’t polished show horses—and that’s intentional.
+          </p>
+          <p>
+            Jackson, affectionately known as the group’s “hat thief,” came from a shelter and carries a scar on his leg. Another horse ran through a fence before joining the family and still bears scars across his back. For some of the youngest children, there’s Bubbles, a miniature pony.
+          </p>
+          <p>
+            Sara believes there’s something powerful about children connecting with animals that aren’t perfect either.
+          </p>
+          <p>
+            “We want all of our horses to have a story, because all of our kids have a story.”
+          </p>
+          <p>
+            Those connections can extend far beyond traditional therapy goals.
+          </p>
+          <p>
+            One teenager in foster care arrived for her first session so upset she refused to get on the horse. Little by little, she earned more time with the horses and built trust with them. Today, she rides throughout the property. Even after moving to a new foster home, she continues to return to visit the horses she connected with.
+          </p>
+          <p>
+            Sara leads hippotherapy sessions at her Bauxite farm, and the program has a waitlist.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>Meeting Children Where They Are</h3>
+          <p>
+            Equinovate’s work extends far beyond the farm.
+          </p>
+          <p>
+            Therapists travel throughout the community to provide services in schools, childcare centers, homes, and other natural environments, allowing children to receive therapy where they spend their everyday lives.
+          </p>
+          <p>
+            Sara is also a Certified Autism Specialist, and working with children on the autism spectrum is one of the areas she is most passionate about.
+          </p>
+          <p>
+            Sensory integration is an important part of that work.
+          </p>
+          <p>
+            Some children constantly seek movement and sensory input, while others may become overwhelmed and withdraw from it. Rather than viewing those responses simply as behavior problems, Equinovate’s therapists work to understand what each child’s nervous system needs.
+          </p>
+          <p>
+            For a child seeking sensory input, strategies may include deep pressure, weighted items, movement, or the steady rhythm of a horse. For a child who avoids sensory experiences, therapists may carefully introduce movement, textures, and activities to help build tolerance and engagement.
+          </p>
+          <p>
+            The goal is simple: meet the child where they are and help them move forward from there.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>Feeding Therapy With a Personal Connection</h3>
+          <p>
+            Feeding therapy is another area close to Sara’s heart.
+          </p>
+          <p>
+            Her oldest son required feeding therapy as a baby, giving her firsthand experience with the challenges families can face when eating becomes stressful or overwhelming.
+          </p>
+          <p>
+            Today, Equinovate has two therapists with specialized training in feeding therapy.
+          </p>
+          <p>
+            It’s an example of the individualized, child-centered approach Equinovate strives to bring to every session.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>No Child Should Go Without Therapy</h3>
+          <p>
+            Sara believes finances should never be the reason a child goes without needed therapy.
+          </p>
+          <p>
+            Equinovate sponsors care for several children whose services aren’t covered by insurance. Team members also have the opportunity to voluntarily donate a portion of their paychecks to a fund dedicated to helping local families.
+          </p>
+          <p>
+            That fund has done more than pay for therapy. It has helped families with bills and purchased new school shoes for children who needed them.
+          </p>
+          <p>
+            The company’s giving also extends beyond its own patients.
+          </p>
+          <p>
+            Equinovate recently prepared and distributed more than 90 food bags throughout Saline County for individuals and families who may need a little extra help. The team also brings food bags to community and vendor events so they are readily available to anyone who needs one.
+          </p>
+          <p>
+            The message is intentionally simple:
+          </p>
+          <p>
+            If you need one, take one.
+          </p>
+          <p>
+            No questions. No judgment. Just neighbors helping neighbors.
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>A New Home for Equinovate</h3>
+          <p>
+            Although Equinovate has primarily operated as a mobile therapy company, Sara has dreamed of giving families a place they can call home.
+          </p>
+          <p>
+            That dream becomes a reality in December 2026, when Equinovate opens its new clinic on Kenwood Road in Benton, near the Tinseltown theater.
+          </p>
+          <p>
+            The new location will provide another option for families who prefer clinic-based services while Equinovate continues its community-based work.
+          </p>
+          <p>
+            Plans are underway for a Christmas-themed grand opening, complete with a ribbon cutting and a special visit from Santa. (She also says to look for the butterflies throughout the new clinic in remembrance of her mom.)
+          </p>
+        </div>
+
+        <div class="listing-subsection">
+          <h3>Still Showing Up</h3>
+          <p>
+            The story behind Equinovate isn’t only one of growth. It’s also a story of continuing forward through seasons Sara never imagined she would face.
+          </p>
+          <p>
+            In February 2026, Sara lost one of the biggest supporters of her life—her mom.
+          </p>
+          <p>
+            Her mom wasn’t simply someone watching from the sidelines. She was one of Sara’s biggest fans, someone who believed in her, encouraged her, and cheered her on as she worked toward the life and career she wanted to build.
+          </p>
+          <p>
+            Losing her left an absence that can never truly be filled. But the love, encouragement, and strength her mom gave her continue to be part of the person—and business owner—Sara is today.
+          </p>
+          <p>
+            Then came another chapter she never expected: a rare form of breast cancer.
+          </p>
+          <p>
+            Sara is currently running Equinovate while undergoing cancer treatment. At first, she didn’t want anyone to know. Eventually, she realized that cancer, like grief, had become part of her story—but neither had to define the rest of it.
+          </p>
+          <p>
+            Through loss, treatment, difficult days, and uncertainty, Equinovate has continued to grow. Children are still receiving therapy. Families are still being supported. A new clinic is preparing to open. And Sara continues building the dream that so many people she loves have helped her believe in.
+          </p>
+          <p>
+            She continues to show up.
+          </p>
+          <p>
+            Her husband and family continue to stand beside her.
+          </p>
+          <p>
+            Her team continues to show up.
+          </p>
+          <p>
+            And somewhere in everything Equinovate continues to become is the influence of the mom who was one of Sara’s biggest fans.
+          </p>
+          <p>
+            The mission remains the same: to serve children and families with compassion, faith, and the belief that every person who walks through Equinovate’s doors—or meets one of its therapists in the community—is far more than a number.
+          </p>
+        </div>
+
+        <p style="margin-top:28px; margin-bottom:0; color:var(--ink);">
+          <strong style="font-family:var(--font-heading);">Faith. Family. Compassion.</strong><br />
+          <em>Innovating life one step at a time</em>
+        </p>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="listing-section" aria-labelledby="location-heading">
+        <h2 id="location-heading">Location</h2>
+
+        <p style="font-size:0.8125rem; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink); margin-bottom:6px;">Hippotherapy / Current location</p>
+        <div class="listing-location-row">
+          <p class="listing-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            9288 Mars Hill Rd, Bauxite, AR 72011
+          </p>
+          <a href="https://www.google.com/maps/search/?api=1&query=9288+Mars+Hill+Rd%2C+Bauxite%2C+AR+72011" target="_blank" rel="noopener noreferrer" class="get-directions-link">
+            Get Directions
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <p style="font-size:0.8125rem; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink); margin:20px 0 6px;">New Benton clinic (opening December 2026)</p>
+        <div class="listing-location-row">
+          <p class="listing-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>204 Kenwood Rd, Benton, AR 72019<br />Near the Tinseltown theater</span>
+          </p>
+          <a href="https://www.google.com/maps/search/?api=1&query=204+Kenwood+Rd%2C+Benton%2C+AR+72019" target="_blank" rel="noopener noreferrer" class="get-directions-link">
+            Get Directions
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <p style="color:var(--muted); margin-top:20px;">
+          <strong style="color:var(--ink);">Hours:</strong> Open until 6:00 PM. Opening times and operating days to be announced.
+        </p>
+
+        <div class="map-embed-wrap">
+          <iframe
+            class="listing-map"
+            title="Map showing Equinovate Therapy Services location on Mars Hill Rd in Bauxite"
+            src="https://www.google.com/maps?q=9288+Mars+Hill+Rd%2C+Bauxite%2C+AR+72011&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="listing-sidebar">
+      <div class="sidebar-card">
+
+        <h2>Contact &amp; Connect</h2>
+        <div class="listing-contact-actions">
+
+          <div class="contact-row">
+            <a href="tel:+15018498644" class="btn btn-amber">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (501) 849-8644
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="https://www.equinovatetherapy.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Visit Website
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="mailto:equinovatetherapy@gmail.com" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+              Email
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <a href="https://www.facebook.com/profile.php?id=100083287182828" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pine">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+              Facebook
+            </a>
+          </div>
+
+        </div>
+
+        <hr class="sidebar-divider" />
+
+        <h2>Service Area</h2>
+        <div class="service-area-pills">
+          <span class="pill is-primary">Bauxite</span>
+          <span class="pill">Benton</span>
+          <span class="pill">Bryant</span>
+          <span class="pill">Saline County</span>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          <img src="/images/logo.png" alt="Saline Local"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+          <div class="footer-logo-text" style="display:none">
+            Saline Local
+            <small>Saline County, AR</small>
+          </div>
+        </div>
+        <p class="footer-tagline">
+          Locally owned businesses, personally vetted — discovered by neighbors, for neighbors across Saline County, Arkansas.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/gosalinelocal/" aria-label="Follow Saline Local on Facebook" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <ul>
+          <li><a href="/food.html">Food &amp; Dining</a></li>
+          <li><a href="/shopping.html">Shopping</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/health.html">Health &amp; Beauty</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>For Businesses</h4>
+        <ul>
+          <li><a href="/get-featured.html">Get Listed (Free)</a></li>
+          <li><a href="/spotlight.html">Spotlight Mailer</a></li>
+          <li><a href="/community-card.html">Community Card</a></li>
+          <li><a href="/about.html">About Saline Local</a></li>
+          <li><a href="/contact.html">Contact Chris</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community Partners</h4>
+        <div class="partner-chips">
+          <div class="partner-chip">
+            <img src="/images/benton-chamber-logo.png" alt="Benton Area Chamber of Commerce" />
+          </div>
+          <div class="partner-chip">
+            <img src="/images/bryant-chamber-logo.png" alt="Bryant Chamber of Commerce" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saline Local &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Saline County, Arkansas</p>
+      <ul class="footer-bottom-links">
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* Mobile nav toggle */
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  let navOpen = false;
+
+  function setNavState(open) {
+    navOpen = open;
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.classList.toggle('open', open);
+    mobileNav.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  toggle.addEventListener('click', () => setNavState(!navOpen));
+
+  document.addEventListener('click', (e) => {
+    if (navOpen && !toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOpen) setNavState(false);
+  });
+
+
+  /* Nav dropdowns: hover-intent with a short close delay so moving the
+     cursor from the nav link down into the dropdown panel doesn't close
+     it, even if the path clips the gap between them. */
+  const CLOSE_DELAY = 180;
+
+  document.querySelectorAll('.nav-item').forEach((item) => {
+    const drop = item.querySelector('.mega-drop');
+    if (!drop) return;
+
+    let closeTimer = null;
+
+    function openDrop() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      item.classList.add('is-open');
+    }
+
+    function scheduleClose() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        item.classList.remove('is-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    }
+
+    item.addEventListener('mouseenter', openDrop);
+    item.addEventListener('mouseleave', scheduleClose);
+    item.addEventListener('focusin', openDrop);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) scheduleClose();
+    });
+  });
+</script>
+
+</body>
+</html>
