@@ -678,7 +678,7 @@
       color: var(--muted);
     }
 
-    /* September flip card: sizing + Front/Back buttons (flip styles are shared, see FLIP CARD) */
+    /* September flip card: sizing + side toggle buttons (flip styles are shared, see FLIP CARD) */
     .availability .flip-card {
       max-width: 720px;
       margin: 24px auto 0;
@@ -1503,7 +1503,7 @@
     <div class="flip-card cc-flip" id="ccSpotsFlipCard">
       <div class="flip-card-inner">
         <div class="flip-card-face flip-card-front cc-face" id="ccFront">
-          <span class="cc-face-label">Front</span>
+          <span class="cc-face-label">One Side</span>
           <div class="cc-face-body">
             <div class="cc-half">
               <div class="cc-spot is-sold" data-status="sold" data-category="Florist"><strong>SOLD</strong><small>Florist</small></div>
@@ -1527,7 +1527,7 @@
           </div>
         </div>
         <div class="flip-card-face flip-card-back cc-face" id="ccBack">
-          <span class="cc-face-label">Back</span>
+          <span class="cc-face-label">Other Side</span>
           <div class="cc-face-body">
             <div class="cc-half">
               <div class="cc-spot is-open" data-status="open">OPEN<small>$250</small><small class="cc-spot-size">2.75" wide x 2.5" high</small></div>
@@ -1551,8 +1551,8 @@
       </div>
     </div>
     <div class="flip-toggle" role="group" aria-label="Show side of the card">
-      <button type="button" class="btn" data-side="front" aria-pressed="true">Front</button>
-      <button type="button" class="btn" data-side="back" aria-pressed="false">Back</button>
+      <button type="button" class="btn" data-side="front" aria-pressed="true">One Side</button>
+      <button type="button" class="btn" data-side="back" aria-pressed="false">Other Side</button>
     </div>
     <!-- ═══ END SPOT MAP ═══ -->
   </div>
