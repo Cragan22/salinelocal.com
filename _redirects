@@ -1,0 +1,11 @@
+# Old store.salinelocal.com (SureCart/WordPress) paths that have no
+# matching page here. The store subdomain redirects to this site with
+# the path kept, so business pages like /city-nails land on their match.
+/shop          /spotlight   301
+/shop/*        /spotlight   301
+/checkout      /spotlight   301
+/checkout/*    /spotlight   301
+/cart          /spotlight   301
+/products/*    /spotlight   301
+/about-us      /about       301
+/category/:slug  /:slug     301
