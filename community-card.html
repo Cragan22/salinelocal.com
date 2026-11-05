@@ -1573,7 +1573,7 @@
         buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.side === side); });
       }
       buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.side); }); });
-      show('front');
+      show('back');
 
       // Sold spots: render from data-status/data-category and update the counters
       var spots = card.querySelectorAll('.cc-spot');
