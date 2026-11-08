@@ -1,0 +1,5 @@
+# Netlify redirect rules: https://docs.netlify.com/routing/redirects/
+# 302 (temporary) keeps printed QR codes changeable; a 301 gets cached by browsers.
+
+# QR code on the printed Saline Local Spotlight cards (old BetterLinks short link)
+/go/saline-local-biz-cards  /spotlight  302
