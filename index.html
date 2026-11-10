@@ -438,6 +438,7 @@
     .categories {
       background: var(--cream);
       padding: 28px 0;
+      scroll-margin-top: 69px; /* keep /#categories clear of the sticky header */
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -1038,7 +1039,7 @@
 <!-- ════════════════════════════════════════════════
      CATEGORY PILLS
 ════════════════════════════════════════════════ -->
-<section class="categories" aria-label="Browse by category">
+<section class="categories" id="categories" aria-label="Browse by category">
   <div class="container">
     <div class="categories-inner">
       <span class="categories-label">Browse by category</span>
