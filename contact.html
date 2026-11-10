@@ -945,6 +945,8 @@
       })
         .then((response) => {
           if (!response.ok) throw new Error('Form submission failed');
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'form_success', form_name: form.getAttribute('name') });
           form.style.display = 'none';
           if (successEl) successEl.style.display = 'block';
         })
