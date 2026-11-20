@@ -302,6 +302,51 @@
     .mobile-spotlight-link:hover { background: var(--amber-dark) !important; }
     .mobile-spotlight-link + .mobile-spotlight-link { margin-top: 10px; }
 
+    /* ── SOLD OUT BANNER ───────────────────────────────── */
+    .sold-out-banner {
+      background: #E5A94F;
+      color: #1F3049;
+      border-bottom: 3px solid #1E3A2F;
+    }
+    .sold-out-banner-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px 18px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .sold-out-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #1E3A2F;
+      color: #F8F5EE;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .sold-out-banner p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .sold-out-banner p strong { font-weight: 900; }
+    .sold-out-banner a {
+      color: #1E3A2F;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      white-space: nowrap;
+    }
+    .sold-out-banner a:hover { color: #1F3049; }
+
     /* ── SPOTLIGHT HERO ────────────────────────────────── */
     .spotlight-cta {
       background: radial-gradient(130% 130% at 50% 20%, var(--pine-hover) 0%, var(--pine) 50%, var(--pine-dark) 100%);
@@ -1291,7 +1336,7 @@
         "name": "Can you hold a spot for me?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "I can't hold or reserve spots. A category belongs to the first business in it that completes checkout. If you're interested, check out soon and I'll take it from there."
+          "text": "I can't hold spots, but the waitlist is the next best thing. Everyone on it hears from me before the next card opens, so you get first shot at your category."
         }
       },
       {
@@ -1515,6 +1560,17 @@
 
 
 <!-- ════════════════════════════════════════════════
+     SOLD OUT BANNER (Community Card #1 sold out Nov 19, 2026)
+════════════════════════════════════════════════ -->
+<section class="sold-out-banner" aria-label="Community Card #1 is sold out">
+  <div class="sold-out-banner-inner">
+    <span class="sold-out-badge">Sold Out</span>
+    <p><strong>Community Card #1 is sold out!</strong> Thank you to the 16 local businesses on this card. <a href="#waitlist">Join the waitlist</a> to get first shot at your category on the next one.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
 <section class="spotlight-cta" aria-labelledby="spotlight-hero-heading">
@@ -1522,8 +1578,8 @@
     <span class="cta-eyebrow">The Saline Local Community Card</span>
     <h1 id="spotlight-hero-heading">Reach 4,920 Benton Homes for $250</h1>
     <p>The Saline Local Community Card is a shared postcard built for small local businesses. One size, one price, and your business goes out to 4,920 homes in Benton without a big ad budget.</p>
-    <a href="#claim-your-spot" class="btn-amber-lg">
-      Claim Your Spot
+    <a href="#waitlist" class="btn-amber-lg">
+      Join the Waitlist
     </a>
   </div>
 </section>
@@ -1622,20 +1678,20 @@
 ════════════════════════════════════════════════ -->
 <section class="availability">
   <div class="container">
-    <span class="availability-eyebrow"><span>Now Booking &middot; Targeting <span style="white-space: nowrap">Nov&ndash;Dec 2026</span></span></span>
-    <h2>Open Spots on the First Saline Local Community Card</h2>
-    <p>Only one business per category makes it onto each card. Claim your category before a competitor does.</p>
+    <span class="availability-eyebrow"><span>Sold Out &middot; Targeting <span style="white-space: nowrap">Nov&ndash;Dec 2026</span></span></span>
+    <h2>Every Spot on the First Saline Local Community Card Is Sold</h2>
+    <p>Only one business per category makes it onto each card. Join the waitlist to get first shot at your category on the next one.</p>
 
     <!-- ═══ SPOT COUNTER: these numbers are calculated automatically from the spot map below
          (count of data-status="sold" spots). The numbers here are only a no-JavaScript fallback. -->
     <div class="spot-counter">
       <div class="spot-stat is-available">
         <span class="spot-stat-dot" aria-hidden="true"></span>
-        <div><span class="spot-stat-num" id="ccAvailableCount">3</span><span class="spot-stat-label">Available</span></div>
+        <div><span class="spot-stat-num" id="ccAvailableCount">0</span><span class="spot-stat-label">Available</span></div>
       </div>
       <div class="spot-stat">
         <span class="spot-stat-dot" aria-hidden="true"></span>
-        <div><span class="spot-stat-num" id="ccSoldCount">13</span><span class="spot-stat-label">Sold</span></div>
+        <div><span class="spot-stat-num" id="ccSoldCount">16</span><span class="spot-stat-label">Sold</span></div>
       </div>
     </div>
     <!-- ═══ END SPOT COUNTER ═══ -->
@@ -1686,9 +1742,9 @@
             </div>
             <div class="cc-half">
               <div class="cc-spot is-sold" data-status="sold" data-category="Primary Care"><strong>SOLD</strong><small>Primary Care</small></div>
-              <div class="cc-spot is-open" data-status="open">OPEN<small>$250</small><small class="cc-spot-size">2.75" wide x 2.5" high</small></div>
-              <div class="cc-spot is-open" data-status="open">OPEN<small>$250</small><small class="cc-spot-size">2.75" wide x 2.5" high</small></div>
-              <div class="cc-spot is-open" data-status="open">OPEN<small>$250</small><small class="cc-spot-size">2.75" wide x 2.5" high</small></div>
+              <div class="cc-spot is-sold" data-status="sold" data-category="Coffee Shop"><strong>SOLD</strong><small>Coffee Shop</small></div>
+              <div class="cc-spot is-sold" data-status="sold" data-category="Boutique"><strong>SOLD</strong><small>Boutique</small></div>
+              <div class="cc-spot is-sold" data-status="sold" data-category="Real Estate"><strong>SOLD</strong><small>Real Estate</small></div>
             </div>
           </div>
         </div>
@@ -1850,7 +1906,7 @@
       </details>
       <details class="faq-item" name="faq-community-card">
         <summary>Can you hold a spot for me?<span class="faq-icon" aria-hidden="true"></span></summary>
-        <div class="faq-answer"><p>I can't hold or reserve spots. A category belongs to the first business in it that completes checkout. If you're interested, check out soon and I'll take it from there.</p></div>
+        <div class="faq-answer"><p>I can't hold spots, but the waitlist is the next best thing. Everyone on it hears from me before the next card opens, so you get first shot at your category.</p></div>
       </details>
       <details class="faq-item" name="faq-community-card">
         <summary>Who designs my ad?<span class="faq-icon" aria-hidden="true"></span></summary>
@@ -1894,15 +1950,16 @@
 
 
 <!-- ════════════════════════════════════════════════
-     FINAL CTA — lead-capture form
+     FINAL CTA — waitlist form (Card #1 sold out Nov 19, 2026)
 ════════════════════════════════════════════════ -->
-<section class="final-cta" id="claim-your-spot" aria-labelledby="claim-heading">
+<section class="final-cta" id="waitlist" aria-labelledby="waitlist-heading">
+  <span id="claim-your-spot" aria-hidden="true"></span>
   <div class="final-cta-inner">
-    <h2 id="claim-heading">Claim Your Spot</h2>
-    <p>Ready to put your business in front of 4,920 Benton homes? There are only 16 spots on each card. Fill out the form below and I'll let you know if your category is open.</p>
+    <h2 id="waitlist-heading">Join the Waitlist</h2>
+    <p>Community Card #1 is sold out. Join the waitlist and I'll reach out before the next card opens, so you get first shot at your category.</p>
 
-    <form class="claim-form-card" id="community-card-claim-form" name="community-card-claim" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="community-card-claim" />
+    <form class="claim-form-card" id="community-card-waitlist-form" name="community-card-waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="community-card-waitlist" />
       <p class="hidden" style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
       <div class="claim-form-row">
         <div class="claim-form-field">
@@ -1935,17 +1992,31 @@
         </div>
       </div>
       <div class="claim-form-field">
-        <label for="message">Message</label>
+        <label for="message">Message <span class="claim-form-optional">(optional)</span></label>
         <textarea id="message" name="Message" rows="4"></textarea>
       </div>
       <p class="form-error" role="alert">Something went wrong. Please try again, or call <a href="tel:+15015022279">(501) 502-2279</a>.</p>
-      <button type="submit" class="btn btn-amber-lg claim-form-submit">Send</button>
+      <button type="submit" class="btn btn-amber-lg claim-form-submit">Join the Waitlist</button>
     </form>
-    <div class="form-success" role="status">Thanks! I'll check whether your category is open and be in touch soon.</div>
+    <div class="form-success" role="status">You're on the list! I'll reach out before the next card opens so you get first shot at your category. – Chris</div>
 
     <p class="final-cta-note">Prefer to call? <a href="tel:+15015022279">(501) 502-2279</a>.</p>
   </div>
 </section>
+
+<!-- Retired form, kept only so Netlify keeps detecting "community-card-claim" and its
+     submission history. Hidden, never shown, and not wired to any script. -->
+<form name="community-card-claim" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true" style="display:none">
+  <input type="hidden" name="form-name" value="community-card-claim" />
+  <input name="bot-field" />
+  <input type="text" name="First Name" />
+  <input type="text" name="Last Name" />
+  <input type="text" name="Business Name" />
+  <input type="text" name="Business Category" />
+  <input type="email" name="Email" />
+  <input type="tel" name="Phone" />
+  <textarea name="Message"></textarea>
+</form>
 
 
 <!-- ════════════════════════════════════════════════
@@ -2144,7 +2215,7 @@
     });
   }
 
-  initNetlifyForm(document.getElementById('community-card-claim-form'));
+  initNetlifyForm(document.getElementById('community-card-waitlist-form'));
 </script>
 
 </body>
